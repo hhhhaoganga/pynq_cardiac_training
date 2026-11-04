@@ -1,0 +1,202 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Wed Oct  7 11:57:48 2026
+| Host         : hlab running 64-bit Ubuntu 24.04.3 LTS
+| Command      : report_utilization -pblocks [get_pblocks pb_pw] -file /home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/mac64_256x320/impl_20261007/opt_pb_pw.rpt
+| Design       : shell_wrapper
+| Device       : xc7z020clg400-1
+| Speed File   : -1
+| Design State : Optimized
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Pblock Summary
+2. Clock Region Statistics
+3. Slice Logic
+3.1 Summary of Registers by Type
+4. Memory
+5. DSP
+6. IO and GT Specific
+7. Clocking
+8. Specific Feature
+9. Primitives
+10. Black Boxes
+11. Instantiated Netlists
+
+1. Pblock Summary
+-----------------
+
++-------+--------+-------+-------------------+-----------------+----------------+
+| Index | Parent | Child | EXCLUDE_PLACEMENT | CONTAIN_ROUTING | SLR(s) Covered |
++-------+--------+-------+-------------------+-----------------+----------------+
+| 1     |  pb_pw |       |                 0 |               0 |           SLR0 |
++-------+--------+-------+-------------------+-----------------+----------------+
+
+
+2. Clock Region Statistics
+--------------------------
+
++-------------+--------------------+
+| CLOCKREGION | Pblock Sites in CR |
++-------------+--------------------+
+| X0Y0        |             49.04% |
+| X1Y0        |             50.96% |
++-------------+--------------------+
+
+
+3. Slice Logic
+--------------
+
++----------------------------+--------+-------+--------------+------+-------+------------+-----------+-------+
+|          Site Type         | Parent | Child | Non-Assigned | Used | Fixed | Prohibited | Available | Util% |
++----------------------------+--------+-------+--------------+------+-------+------------+-----------+-------+
+| Slice LUTs*                |   9984 |     0 |            0 | 9984 |     0 |          0 |     19840 | 50.32 |
+|   LUT as Logic             |   9871 |     0 |            0 | 9871 |     0 |          0 |     19840 | 49.75 |
+|   LUT as Memory            |    113 |     0 |            0 |  113 |     0 |          0 |      6440 |  1.75 |
+|     LUT as Distributed RAM |      0 |     0 |            0 |    0 |     0 |            |           |       |
+|     LUT as Shift Register  |    113 |     0 |            0 |  113 |     0 |            |           |       |
+| Slice Registers            |   8700 |     0 |            0 | 8700 |     0 |          0 |     39680 | 21.93 |
+|   Register as Flip Flop    |   8700 |     0 |            0 | 8700 |     0 |          0 |     39680 | 21.93 |
+|   Register as Latch        |      0 |     0 |            0 |    0 |     0 |          0 |     39680 |  0.00 |
+| F7 Muxes                   |    160 |     0 |            0 |  160 |     0 |          0 |      9920 |  1.61 |
+| F8 Muxes                   |      0 |     0 |            0 |    0 |     0 |          0 |      4960 |  0.00 |
++----------------------------+--------+-------+--------------+------+-------+------------+-----------+-------+
+* Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
+Warning! LUT value is adjusted to account for LUT combining.
+Warning! For any ECO changes, please run place_design if there are unplaced instances
+
+
+3.1 Summary of Registers by Type
+--------------------------------
+
++-------+--------------+-------------+--------------+
+| Total | Clock Enable | Synchronous | Asynchronous |
++-------+--------------+-------------+--------------+
+| 0     |            _ |           - |            - |
+| 0     |            _ |           - |          Set |
+| 0     |            _ |           - |        Reset |
+| 0     |            _ |         Set |            - |
+| 0     |            _ |       Reset |            - |
+| 0     |          Yes |           - |            - |
+| 0     |          Yes |           - |          Set |
+| 0     |          Yes |           - |        Reset |
+| 5     |          Yes |         Set |            - |
+| 8695  |          Yes |       Reset |            - |
++-------+--------------+-------------+--------------+
+
+
+4. Memory
+---------
+
++-------------------+--------+-------+--------------+------+-------+------------+-----------+-------+
+|     Site Type     | Parent | Child | Non-Assigned | Used | Fixed | Prohibited | Available | Util% |
++-------------------+--------+-------+--------------+------+-------+------------+-----------+-------+
+| Block RAM Tile    |     46 |     0 |            0 |   46 |     0 |          0 |        52 | 88.46 |
+|   RAMB36/FIFO*    |     43 |     0 |            0 |   43 |     0 |          0 |        52 | 82.69 |
+|     RAMB36E1 only |     43 |     0 |            0 |   43 |       |            |           |       |
+|   RAMB18          |      6 |     0 |            0 |    6 |     0 |          0 |       104 |  5.77 |
+|     RAMB18E1 only |      6 |     0 |            0 |    6 |       |            |           |       |
++-------------------+--------+-------+--------------+------+-------+------------+-----------+-------+
+* Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
+
+
+5. DSP
+------
+
++----------------+--------+-------+--------------+------+-------+------------+-----------+-------+
+|    Site Type   | Parent | Child | Non-Assigned | Used | Fixed | Prohibited | Available | Util% |
++----------------+--------+-------+--------------+------+-------+------------+-----------+-------+
+| DSPs           |     60 |     0 |            0 |   60 |     0 |          0 |        84 | 71.43 |
+|   DSP48E1 only |     60 |     0 |            0 |   60 |       |            |           |       |
++----------------+--------+-------+--------------+------+-------+------------+-----------+-------+
+
+
+6. IO and GT Specific
+---------------------
+
++-----------+--------+-------+--------------+------+-------+------------+-----------+-------+
+| Site Type | Parent | Child | Non-Assigned | Used | Fixed | Prohibited | Available | Util% |
++-----------+--------+-------+--------------+------+-------+------------+-----------+-------+
+
+
+7. Clocking
+-----------
+
++-----------+--------+-------+--------------+------+-------+------------+-----------+-------+
+| Site Type | Parent | Child | Non-Assigned | Used | Fixed | Prohibited | Available | Util% |
++-----------+--------+-------+--------------+------+-------+------------+-----------+-------+
+
+
+8. Specific Feature
+-------------------
+
++-----------+--------+-------+--------------+------+-------+------------+-----------+-------+
+| Site Type | Parent | Child | Non-Assigned | Used | Fixed | Prohibited | Available | Util% |
++-----------+--------+-------+--------------+------+-------+------------+-----------+-------+
+
+
+9. Primitives
+-------------
+
++----------+------+---------------------+
+| Ref Name | Used | Functional Category |
++----------+------+---------------------+
+| FDRE     | 8695 |        Flop & Latch |
+| LUT6     | 3997 |                 LUT |
+| LUT3     | 2505 |                 LUT |
+| LUT2     | 2120 |                 LUT |
+| LUT4     | 1726 |                 LUT |
+| LUT5     | 1647 |                 LUT |
+| CARRY4   | 1457 |          CarryLogic |
+| MUXF7    |  160 |               MuxFx |
+| SRL16E   |  113 |  Distributed Memory |
+| LUT1     |  105 |                 LUT |
+| DSP48E1  |   60 |    Block Arithmetic |
+| RAMB36E1 |   43 |        Block Memory |
+| RAMB18E1 |    6 |        Block Memory |
+| FDSE     |    5 |        Flop & Latch |
++----------+------+---------------------+
+
+
+10. Black Boxes
+---------------
+
++----------+------+
+| Ref Name | Used |
++----------+------+
+
+
+11. Instantiated Netlists
+-------------------------
+
++----------------------------------+------+
+|             Ref Name             | Used |
++----------------------------------+------+
+| shell_xrgb_to_rgb_0              |    1 |
+| shell_vtg_hdmi_0                 |    1 |
+| shell_v_vid_out_hdmi_0           |    1 |
+| shell_sdm_mem_0                  |    1 |
+| shell_sdm_ctrl_0                 |    1 |
+| shell_rst_rp_fast_0              |    1 |
+| shell_rst_rp_ctrl_0              |    1 |
+| shell_rst_ps_142_0               |    1 |
+| shell_rst_ps_100_0               |    1 |
+| shell_ps7_0_0                    |    1 |
+| shell_hp2_intercon_imp_auto_pc_0 |    1 |
+| shell_hp0_intercon_imp_auto_pc_0 |    1 |
+| shell_gp0_periph_imp_xbar_0      |    1 |
+| shell_gp0_periph_imp_auto_pc_0   |    1 |
+| shell_dvi_tx_hdmi_0              |    1 |
+| shell_dfx_sync_0                 |    1 |
+| shell_dfx_gpio_0                 |    1 |
+| shell_clk_wiz_hdmi_0             |    1 |
+| shell_axi_vdma_hdmi_0            |    1 |
+| shell_axi_intc_0_0               |    1 |
+| rm_cnn_top                       |    1 |
++----------------------------------+------+
+
+

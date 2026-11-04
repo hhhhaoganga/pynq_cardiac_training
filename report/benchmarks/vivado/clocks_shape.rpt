@@ -1,0 +1,90 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Wed Oct 21 06:48:16 2026
+| Host         : hlab running 64-bit Ubuntu 24.04.3 LTS
+| Command      : report_clocks -file reports/clocks_shape.rpt
+| Design       : shell_wrapper
+| Device       : 7z020-clg400
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Physopt postRoute
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Clock Report
+
+
+Attributes
+  P: Propagated
+  G: Generated
+  A: Auto-derived
+  R: Renamed
+  V: Virtual
+  I: Inverted
+  S: Pin phase-shifted with Latency mode
+
+Clock                          Period(ns)  Waveform(ns)    Attributes  Sources
+clk_fpga_0                     10.000      {0.000 5.000}   P           {shell_i/ps7_0/inst/PS7_i/FCLKCLK[0]}
+clk_fpga_1                     7.000       {0.000 3.500}   P           {shell_i/ps7_0/inst/PS7_i/FCLKCLK[1]}
+clk_fpga_2                     5.000       {0.000 2.500}   P           {shell_i/ps7_0/inst/PS7_i/FCLKCLK[2]}
+clk_fpga_3                     10.000      {0.000 5.000}   P           {shell_i/ps7_0/inst/PS7_i/FCLKCLK[3]}
+clk_out1_shell_clk_wiz_hdmi_0  13.468      {0.000 6.734}   P,G,A       {shell_i/clk_wiz_hdmi/inst/mmcm_adv_inst/CLKOUT0}
+clk_wiz_hdmi_clk_out2          2.694       {0.000 1.347}   P,G,A       {shell_i/clk_wiz_hdmi/inst/mmcm_adv_inst/CLKOUT1}
+clkfbout_shell_clk_wiz_hdmi_0  50.000      {0.000 25.000}  P,G,A       {shell_i/clk_wiz_hdmi/inst/mmcm_adv_inst/CLKFBOUT}
+
+
+====================================================
+Generated Clocks
+====================================================
+
+Generated Clock     : clk_out1_shell_clk_wiz_hdmi_0
+Master Source       : shell_i/clk_wiz_hdmi/inst/mmcm_adv_inst/CLKIN1
+Master Clock        : clk_fpga_0
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.000 1.734 3.468}
+Generated Sources   : {shell_i/clk_wiz_hdmi/inst/mmcm_adv_inst/CLKOUT0}
+
+Generated Clock     : clk_wiz_hdmi_clk_out2
+Master Source       : shell_i/clk_wiz_hdmi/inst/mmcm_adv_inst/CLKIN1
+Master Clock        : clk_fpga_0
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.000 -3.653 -7.306}
+Generated Sources   : {shell_i/clk_wiz_hdmi/inst/mmcm_adv_inst/CLKOUT1}
+
+Generated Clock     : clkfbout_shell_clk_wiz_hdmi_0
+Master Source       : shell_i/clk_wiz_hdmi/inst/mmcm_adv_inst/CLKIN1
+Master Clock        : clk_fpga_0
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.000 20.000 40.000}
+Generated Sources   : {shell_i/clk_wiz_hdmi/inst/mmcm_adv_inst/CLKFBOUT}
+
+
+
+====================================================
+User Uncertainty
+====================================================
+
+
+
+====================================================
+User Jitter
+====================================================
+
+Clock       Jitter(ns)
+clk_fpga_0  0.300
+clk_fpga_1  0.210
+clk_fpga_2  0.150
+clk_fpga_3  0.300
+
+
+
+====================================================
+Clock Source Module
+====================================================
+
+Clock                          Module
+clk_fpga_0                     Static 
+clk_fpga_1                     Static 
+clk_fpga_2                     Static 
+clk_out1_shell_clk_wiz_hdmi_0  Static 
+clk_wiz_hdmi_clk_out2          Static 
+clkfbout_shell_clk_wiz_hdmi_0  Static 

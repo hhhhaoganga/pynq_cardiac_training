@@ -1,0 +1,157 @@
+{
+  "program_beat": 215104,
+  "words": 247600,
+  "instructions": 4062,
+  "checks": [
+    {
+      "block": 0,
+      "addr": 652800,
+      "size": 327680,
+      "label": "E2D3P1R0"
+    },
+    {
+      "block": 1,
+      "addr": 980480,
+      "size": 81920,
+      "label": "E1D3P1R2"
+    },
+    {
+      "block": 2,
+      "addr": 1062400,
+      "size": 81920,
+      "label": "E1D3P1R1"
+    },
+    {
+      "block": 3,
+      "addr": 1144320,
+      "size": 40960,
+      "label": "E1D3P1R0"
+    },
+    {
+      "block": 4,
+      "addr": 1185280,
+      "size": 40960,
+      "label": "E1D3P1R1"
+    },
+    {
+      "block": 5,
+      "addr": 1226240,
+      "size": 15360,
+      "label": "E1D3P1R0"
+    },
+    {
+      "block": 6,
+      "addr": 1241600,
+      "size": 15360,
+      "label": "E1D3P1R1"
+    },
+    {
+      "block": 7,
+      "addr": 1256960,
+      "size": 15360,
+      "label": "E1D3P1R1"
+    },
+    {
+      "block": 8,
+      "addr": 1272320,
+      "size": 20480,
+      "label": "E1D3P1R0"
+    },
+    {
+      "block": 9,
+      "addr": 1292800,
+      "size": 20480,
+      "label": "E1D3P1R1"
+    },
+    {
+      "block": 10,
+      "addr": 1313280,
+      "size": 20480,
+      "label": "E1D3P1R1"
+    },
+    {
+      "block": 11,
+      "addr": 1333760,
+      "size": 8960,
+      "label": "E1D3P1R0"
+    },
+    {
+      "block": 12,
+      "addr": 1342720,
+      "size": 8960,
+      "label": "E1D3P1R1"
+    },
+    {
+      "block": 13,
+      "addr": 1351680,
+      "size": 8960,
+      "label": "E1D3P1R1"
+    },
+    {
+      "block": 14,
+      "addr": 1360640,
+      "size": 8960,
+      "label": "E1D3P1R1"
+    },
+    {
+      "block": 15,
+      "addr": 1369600,
+      "size": 3840,
+      "label": "E0D1P1R0"
+    },
+    {
+      "block": 16,
+      "addr": 1373440,
+      "size": 15360,
+      "label": "E0D1P1R3"
+    },
+    {
+      "block": 17,
+      "addr": 1388800,
+      "size": 15360,
+      "label": "E0D3P1R0"
+    },
+    {
+      "block": 18,
+      "addr": 1404160,
+      "size": 61440,
+      "label": "E0D1P1R3"
+    },
+    {
+      "block": 19,
+      "addr": 1465600,
+      "size": 61440,
+      "label": "E0D3P1R0"
+    },
+    {
+      "block": 20,
+      "addr": 1527040,
+      "size": 61440,
+      "label": "E0D3P1R0"
+    },
+    {
+      "block": 21,
+      "addr": 1588480,
+      "size": 81920,
+      "label": "E0D1P2R0"
+    }
+  ],
+  "input": {
+    "byte_offset": 325120,
+    "height": 256,
+    "width": 320,
+    "pixel_bytes": 4,
+    "layout": "RGBX unsigned input codes"
+  },
+  "output": {
+    "byte_offset": 1588480,
+    "byte_count": 81920,
+    "height": 32,
+    "width": 40,
+    "padded_channels": 16,
+    "valid_channels": 7,
+    "dtype": "little-endian int32"
+  },
+  "original_sha256": "4f9af02efcfd69fb7c079a3184b58a83fdf9509c0caa115d62f05591e092facc",
+  "schema": 1
+}

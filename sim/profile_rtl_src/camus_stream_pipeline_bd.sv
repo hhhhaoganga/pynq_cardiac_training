@@ -1,0 +1,245 @@
+`timescale 1ns/1ps
+
+// Vivado Block Design wrapper. Interface attributes let module reference
+// expose one AXI4-Lite slave and the two complete DataMover channel bundles.
+module camus_stream_pipeline_bd (
+    (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
+    (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF S_AXI_CTRL:M_AXIS_ENC_MM2S_CMD:S_AXIS_ENC_MM2S_STS:S_AXIS_ENC_MM2S:M_AXIS_ENC_S2MM_CMD:S_AXIS_ENC_S2MM_STS:M_AXIS_ENC_S2MM:M_AXIS_DEC_MM2S_CMD:S_AXIS_DEC_MM2S_STS:S_AXIS_DEC_MM2S:M_AXIS_DEC_S2MM_CMD:S_AXIS_DEC_S2MM_STS:M_AXIS_DEC_S2MM:M_AXIS_POST_MM2S_CMD:S_AXIS_POST_MM2S_STS:S_AXIS_POST_MM2S:M_AXIS_POST_S2MM_CMD:S_AXIS_POST_S2MM_STS:M_AXIS_POST_S2MM, ASSOCIATED_RESET aresetn, FREQ_HZ 100000000" *)
+    input logic aclk,
+    (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 aresetn RST" *)
+    (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aresetn, POLARITY ACTIVE_LOW" *)
+    input logic aresetn,
+
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL AWADDR" *) input logic [7:0] s_axi_ctrl_awaddr,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL AWVALID" *) input logic s_axi_ctrl_awvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL AWREADY" *) output logic s_axi_ctrl_awready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL WDATA" *) input logic [31:0] s_axi_ctrl_wdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL WSTRB" *) input logic [3:0] s_axi_ctrl_wstrb,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL WVALID" *) input logic s_axi_ctrl_wvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL WREADY" *) output logic s_axi_ctrl_wready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL BRESP" *) output logic [1:0] s_axi_ctrl_bresp,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL BVALID" *) output logic s_axi_ctrl_bvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL BREADY" *) input logic s_axi_ctrl_bready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL ARADDR" *) input logic [7:0] s_axi_ctrl_araddr,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL ARVALID" *) input logic s_axi_ctrl_arvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL ARREADY" *) output logic s_axi_ctrl_arready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL RDATA" *) output logic [31:0] s_axi_ctrl_rdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL RRESP" *) output logic [1:0] s_axi_ctrl_rresp,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL RVALID" *) output logic s_axi_ctrl_rvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI_CTRL RREADY" *) input logic s_axi_ctrl_rready,
+
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_ENC_MM2S_CMD TDATA" *) output logic [71:0] m_axis_enc_mm2s_cmd_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_ENC_MM2S_CMD TVALID" *) output logic m_axis_enc_mm2s_cmd_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_ENC_MM2S_CMD TREADY" *) input logic m_axis_enc_mm2s_cmd_tready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_ENC_MM2S_STS TDATA" *) input logic [7:0] s_axis_enc_mm2s_sts_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_ENC_MM2S_STS TVALID" *) input logic s_axis_enc_mm2s_sts_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_ENC_MM2S_STS TREADY" *) output logic s_axis_enc_mm2s_sts_tready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_ENC_MM2S TDATA" *) input logic [127:0] s_axis_enc_mm2s_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_ENC_MM2S TKEEP" *) input logic [15:0] s_axis_enc_mm2s_tkeep,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_ENC_MM2S TLAST" *) input logic s_axis_enc_mm2s_tlast,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_ENC_MM2S TVALID" *) input logic s_axis_enc_mm2s_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_ENC_MM2S TREADY" *) output logic s_axis_enc_mm2s_tready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_ENC_S2MM_CMD TDATA" *) output logic [71:0] m_axis_enc_s2mm_cmd_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_ENC_S2MM_CMD TVALID" *) output logic m_axis_enc_s2mm_cmd_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_ENC_S2MM_CMD TREADY" *) input logic m_axis_enc_s2mm_cmd_tready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_ENC_S2MM_STS TDATA" *) input logic [7:0] s_axis_enc_s2mm_sts_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_ENC_S2MM_STS TVALID" *) input logic s_axis_enc_s2mm_sts_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_ENC_S2MM_STS TREADY" *) output logic s_axis_enc_s2mm_sts_tready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_ENC_S2MM TDATA" *) output logic [127:0] m_axis_enc_s2mm_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_ENC_S2MM TKEEP" *) output logic [15:0] m_axis_enc_s2mm_tkeep,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_ENC_S2MM TLAST" *) output logic m_axis_enc_s2mm_tlast,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_ENC_S2MM TVALID" *) output logic m_axis_enc_s2mm_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_ENC_S2MM TREADY" *) input logic m_axis_enc_s2mm_tready,
+
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_DEC_MM2S_CMD TDATA" *) output logic [71:0] m_axis_dec_mm2s_cmd_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_DEC_MM2S_CMD TVALID" *) output logic m_axis_dec_mm2s_cmd_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_DEC_MM2S_CMD TREADY" *) input logic m_axis_dec_mm2s_cmd_tready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_DEC_MM2S_STS TDATA" *) input logic [7:0] s_axis_dec_mm2s_sts_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_DEC_MM2S_STS TVALID" *) input logic s_axis_dec_mm2s_sts_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_DEC_MM2S_STS TREADY" *) output logic s_axis_dec_mm2s_sts_tready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_DEC_MM2S TDATA" *) input logic [127:0] s_axis_dec_mm2s_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_DEC_MM2S TKEEP" *) input logic [15:0] s_axis_dec_mm2s_tkeep,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_DEC_MM2S TLAST" *) input logic s_axis_dec_mm2s_tlast,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_DEC_MM2S TVALID" *) input logic s_axis_dec_mm2s_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_DEC_MM2S TREADY" *) output logic s_axis_dec_mm2s_tready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_DEC_S2MM_CMD TDATA" *) output logic [71:0] m_axis_dec_s2mm_cmd_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_DEC_S2MM_CMD TVALID" *) output logic m_axis_dec_s2mm_cmd_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_DEC_S2MM_CMD TREADY" *) input logic m_axis_dec_s2mm_cmd_tready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_DEC_S2MM_STS TDATA" *) input logic [7:0] s_axis_dec_s2mm_sts_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_DEC_S2MM_STS TVALID" *) input logic s_axis_dec_s2mm_sts_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_DEC_S2MM_STS TREADY" *) output logic s_axis_dec_s2mm_sts_tready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_DEC_S2MM TDATA" *) output logic [127:0] m_axis_dec_s2mm_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_DEC_S2MM TKEEP" *) output logic [15:0] m_axis_dec_s2mm_tkeep,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_DEC_S2MM TLAST" *) output logic m_axis_dec_s2mm_tlast,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_DEC_S2MM TVALID" *) output logic m_axis_dec_s2mm_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_DEC_S2MM TREADY" *) input logic m_axis_dec_s2mm_tready,
+
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_POST_MM2S_CMD TDATA" *) output logic [71:0] m_axis_post_mm2s_cmd_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_POST_MM2S_CMD TVALID" *) output logic m_axis_post_mm2s_cmd_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_POST_MM2S_CMD TREADY" *) input logic m_axis_post_mm2s_cmd_tready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_POST_MM2S_STS TDATA" *) input logic [7:0] s_axis_post_mm2s_sts_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_POST_MM2S_STS TVALID" *) input logic s_axis_post_mm2s_sts_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_POST_MM2S_STS TREADY" *) output logic s_axis_post_mm2s_sts_tready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_POST_MM2S TDATA" *) input logic [127:0] s_axis_post_mm2s_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_POST_MM2S TKEEP" *) input logic [15:0] s_axis_post_mm2s_tkeep,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_POST_MM2S TLAST" *) input logic s_axis_post_mm2s_tlast,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_POST_MM2S TVALID" *) input logic s_axis_post_mm2s_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_POST_MM2S TREADY" *) output logic s_axis_post_mm2s_tready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_POST_S2MM_CMD TDATA" *) output logic [71:0] m_axis_post_s2mm_cmd_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_POST_S2MM_CMD TVALID" *) output logic m_axis_post_s2mm_cmd_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_POST_S2MM_CMD TREADY" *) input logic m_axis_post_s2mm_cmd_tready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_POST_S2MM_STS TDATA" *) input logic [7:0] s_axis_post_s2mm_sts_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_POST_S2MM_STS TVALID" *) input logic s_axis_post_s2mm_sts_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_POST_S2MM_STS TREADY" *) output logic s_axis_post_s2mm_sts_tready,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_POST_S2MM TDATA" *) output logic [127:0] m_axis_post_s2mm_tdata,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_POST_S2MM TKEEP" *) output logic [15:0] m_axis_post_s2mm_tkeep,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_POST_S2MM TLAST" *) output logic m_axis_post_s2mm_tlast,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_POST_S2MM TVALID" *) output logic m_axis_post_s2mm_tvalid,
+    (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS_POST_S2MM TREADY" *) input logic m_axis_post_s2mm_tready,
+    input logic post_mm2s_error,
+    input logic post_s2mm_error,
+    input logic enc_mm2s_error,
+    input logic enc_s2mm_error,
+    input logic dec_mm2s_error,
+    input logic dec_s2mm_error,
+    (* X_INTERFACE_INFO = "xilinx.com:signal:interrupt:1.0 irq INTERRUPT" *)
+    (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME irq, SENSITIVITY LEVEL_HIGH" *)
+    output logic irq
+);
+    logic submit_pulse, soft_reset_pulse, clear_history_pulse;
+    logic [31:0] cfg_input_base, cfg_mask_base, cfg_frame_id;
+    logic [31:0] cfg_slot0_padded_base, cfg_slot0_skip_base;
+    logic [31:0] cfg_slot0_scratch_base, cfg_slot1_padded_base;
+    logic [31:0] cfg_slot1_skip_base, cfg_slot1_scratch_base;
+    logic [31:0] cfg_watchdog_limit;
+    logic [31:0] cfg_post_base;
+    logic result_ready;
+    logic [63:0] post_cycle_count;
+    logic [63:0] result_pack_cycles,result_enc_cycles,result_dec_cycles,result_post_cycles;
+    logic frame_ready, result_valid, core_busy, core_error;
+    logic [31:0] result_mask_base, result_frame_id;
+    logic [63:0] frames_accepted, frames_completed;
+    logic [63:0] pack_cycle_count, enc_cycle_count, dec_cycle_count;
+    logic [4:0] enc_current_op, dec_current_op;
+    logic [1:0] history_count;
+    logic core_rst;
+    logic [50:0] area_counts;
+    logic profile_rearm;
+    logic [7:0] profile_read_index;
+    logic [31:0] profile_read_data;
+
+    assign core_rst = !aresetn || soft_reset_pulse;
+
+    camus_stream_axi_ctrl u_ctrl (
+        .s_axi_aclk(aclk), .s_axi_aresetn(aresetn),
+        .s_axi_awaddr(s_axi_ctrl_awaddr), .s_axi_awvalid(s_axi_ctrl_awvalid),
+        .s_axi_awready(s_axi_ctrl_awready), .s_axi_wdata(s_axi_ctrl_wdata),
+        .s_axi_wstrb(s_axi_ctrl_wstrb), .s_axi_wvalid(s_axi_ctrl_wvalid),
+        .s_axi_wready(s_axi_ctrl_wready), .s_axi_bresp(s_axi_ctrl_bresp),
+        .s_axi_bvalid(s_axi_ctrl_bvalid), .s_axi_bready(s_axi_ctrl_bready),
+        .s_axi_araddr(s_axi_ctrl_araddr), .s_axi_arvalid(s_axi_ctrl_arvalid),
+        .s_axi_arready(s_axi_ctrl_arready), .s_axi_rdata(s_axi_ctrl_rdata),
+        .s_axi_rresp(s_axi_ctrl_rresp), .s_axi_rvalid(s_axi_ctrl_rvalid),
+        .s_axi_rready(s_axi_ctrl_rready), .submit_pulse,
+        .soft_reset_pulse, .clear_history_pulse, .cfg_input_base,
+        .cfg_mask_base, .cfg_frame_id, .cfg_slot0_padded_base,
+        .cfg_slot0_skip_base, .cfg_slot0_scratch_base,
+        .cfg_slot1_padded_base, .cfg_slot1_skip_base,
+        .cfg_slot1_scratch_base, .cfg_watchdog_limit, .cfg_post_base, .frame_ready,
+        .core_busy, .core_error,
+        .dma_error(enc_mm2s_error || enc_s2mm_error || dec_mm2s_error || dec_s2mm_error
+            || post_mm2s_error || post_s2mm_error),
+        .result_valid, .result_ready, .result_mask_base, .result_frame_id,
+        .frames_accepted, .frames_completed, .pack_cycle_count(result_pack_cycles),
+        .enc_cycle_count(result_enc_cycles), .dec_cycle_count(result_dec_cycles),
+        .post_cycle_count(result_post_cycles), .enc_current_op,
+        .dec_current_op, .history_count, .irq, .area_counts,
+        .profile_rearm, .profile_read_index, .profile_read_data);
+
+    camus_stream_pipeline_core u_core (
+        .clk(aclk), .rst(core_rst), .clear_history(clear_history_pulse),
+        .frame_valid(submit_pulse), .frame_ready,
+        .frame_input_base(cfg_input_base), .frame_mask_base(cfg_mask_base),
+        .frame_id(cfg_frame_id), .slot0_padded_base(cfg_slot0_padded_base),
+        .slot0_skip_base(cfg_slot0_skip_base),
+        .slot0_scratch_base(cfg_slot0_scratch_base),
+        .slot1_padded_base(cfg_slot1_padded_base),
+        .slot1_skip_base(cfg_slot1_skip_base),
+        .slot1_scratch_base(cfg_slot1_scratch_base),
+        .watchdog_limit(cfg_watchdog_limit),
+        .post_base(cfg_post_base),
+        .post_cycle_count,.result_pack_cycles,.result_enc_cycles,
+        .result_dec_cycles,.result_post_cycles,
+        .enc_mm2s_cmd_valid(m_axis_enc_mm2s_cmd_tvalid),
+        .enc_mm2s_cmd_ready(m_axis_enc_mm2s_cmd_tready),
+        .enc_mm2s_cmd_data(m_axis_enc_mm2s_cmd_tdata),
+        .enc_mm2s_sts_valid(s_axis_enc_mm2s_sts_tvalid),
+        .enc_mm2s_sts_ready(s_axis_enc_mm2s_sts_tready),
+        .enc_mm2s_sts_data(s_axis_enc_mm2s_sts_tdata),
+        .enc_mm2s_valid(s_axis_enc_mm2s_tvalid),
+        .enc_mm2s_ready(s_axis_enc_mm2s_tready),
+        .enc_mm2s_data(s_axis_enc_mm2s_tdata),
+        .enc_mm2s_keep(s_axis_enc_mm2s_tkeep),
+        .enc_mm2s_last(s_axis_enc_mm2s_tlast),
+        .enc_s2mm_cmd_valid(m_axis_enc_s2mm_cmd_tvalid),
+        .enc_s2mm_cmd_ready(m_axis_enc_s2mm_cmd_tready),
+        .enc_s2mm_cmd_data(m_axis_enc_s2mm_cmd_tdata),
+        .enc_s2mm_sts_valid(s_axis_enc_s2mm_sts_tvalid),
+        .enc_s2mm_sts_ready(s_axis_enc_s2mm_sts_tready),
+        .enc_s2mm_sts_data(s_axis_enc_s2mm_sts_tdata),
+        .enc_s2mm_valid(m_axis_enc_s2mm_tvalid),
+        .enc_s2mm_ready(m_axis_enc_s2mm_tready),
+        .enc_s2mm_data(m_axis_enc_s2mm_tdata),
+        .enc_s2mm_keep(m_axis_enc_s2mm_tkeep),
+        .enc_s2mm_last(m_axis_enc_s2mm_tlast),
+        .dec_mm2s_cmd_valid(m_axis_dec_mm2s_cmd_tvalid),
+        .dec_mm2s_cmd_ready(m_axis_dec_mm2s_cmd_tready),
+        .dec_mm2s_cmd_data(m_axis_dec_mm2s_cmd_tdata),
+        .dec_mm2s_sts_valid(s_axis_dec_mm2s_sts_tvalid),
+        .dec_mm2s_sts_ready(s_axis_dec_mm2s_sts_tready),
+        .dec_mm2s_sts_data(s_axis_dec_mm2s_sts_tdata),
+        .dec_mm2s_valid(s_axis_dec_mm2s_tvalid),
+        .dec_mm2s_ready(s_axis_dec_mm2s_tready),
+        .dec_mm2s_data(s_axis_dec_mm2s_tdata),
+        .dec_mm2s_keep(s_axis_dec_mm2s_tkeep),
+        .dec_mm2s_last(s_axis_dec_mm2s_tlast),
+        .dec_s2mm_cmd_valid(m_axis_dec_s2mm_cmd_tvalid),
+        .dec_s2mm_cmd_ready(m_axis_dec_s2mm_cmd_tready),
+        .dec_s2mm_cmd_data(m_axis_dec_s2mm_cmd_tdata),
+        .dec_s2mm_sts_valid(s_axis_dec_s2mm_sts_tvalid),
+        .dec_s2mm_sts_ready(s_axis_dec_s2mm_sts_tready),
+        .dec_s2mm_sts_data(s_axis_dec_s2mm_sts_tdata),
+        .dec_s2mm_valid(m_axis_dec_s2mm_tvalid),
+        .dec_s2mm_ready(m_axis_dec_s2mm_tready),
+        .dec_s2mm_data(m_axis_dec_s2mm_tdata),
+        .dec_s2mm_keep(m_axis_dec_s2mm_tkeep),
+        .dec_s2mm_last(m_axis_dec_s2mm_tlast),
+        .post_mm2s_cmd_valid(m_axis_post_mm2s_cmd_tvalid),
+        .post_mm2s_cmd_ready(m_axis_post_mm2s_cmd_tready),
+        .post_mm2s_cmd_data(m_axis_post_mm2s_cmd_tdata),
+        .post_mm2s_sts_valid(s_axis_post_mm2s_sts_tvalid),
+        .post_mm2s_sts_ready(s_axis_post_mm2s_sts_tready),
+        .post_mm2s_sts_data(s_axis_post_mm2s_sts_tdata),
+        .post_mm2s_valid(s_axis_post_mm2s_tvalid),
+        .post_mm2s_ready(s_axis_post_mm2s_tready),
+        .post_mm2s_data(s_axis_post_mm2s_tdata),
+        .post_mm2s_keep(s_axis_post_mm2s_tkeep),
+        .post_mm2s_last(s_axis_post_mm2s_tlast),
+        .post_s2mm_cmd_valid(m_axis_post_s2mm_cmd_tvalid),
+        .post_s2mm_cmd_ready(m_axis_post_s2mm_cmd_tready),
+        .post_s2mm_cmd_data(m_axis_post_s2mm_cmd_tdata),
+        .post_s2mm_sts_valid(s_axis_post_s2mm_sts_tvalid),
+        .post_s2mm_sts_ready(s_axis_post_s2mm_sts_tready),
+        .post_s2mm_sts_data(s_axis_post_s2mm_sts_tdata),
+        .post_s2mm_valid(m_axis_post_s2mm_tvalid),
+        .post_s2mm_ready(m_axis_post_s2mm_tready),
+        .post_s2mm_data(m_axis_post_s2mm_tdata),
+        .post_s2mm_keep(m_axis_post_s2mm_tkeep),
+        .post_s2mm_last(m_axis_post_s2mm_tlast),
+        .result_valid, .result_ready, .result_mask_base,
+        .result_frame_id, .busy(core_busy), .error(core_error),
+        .frames_accepted, .frames_completed, .pack_cycle_count,
+        .enc_cycle_count, .dec_cycle_count, .enc_current_op,
+        .dec_current_op, .history_count, .area_counts,
+        .profile_rearm, .profile_read_index, .profile_read_data);
+endmodule

@@ -1,0 +1,19 @@
+{
+  "profile": "knot_dw3",
+  "dw_taps": 3,
+  "dw_beats": 4,
+  "nslot": 4,
+  "tile_in": 4,
+  "buffer_use": {
+    "outh": 40,
+    "lb_slot": 480,
+    "pin": 320,
+    "dwb": 320,
+    "outb": 160,
+    "resb": 160,
+    "wt": 1176,
+    "wd": 63,
+    "par": 21,
+    "img_w": 320
+  }
+}

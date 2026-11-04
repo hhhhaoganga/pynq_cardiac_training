@@ -1,0 +1,23 @@
+{
+  "variant": "knot_dw3_e3_w4a8_v1",
+  "samples": 1469,
+  "fake_quant": {
+    "mAP50": 0.8082207222095338,
+    "mAP50_95": 0.5178305608055339,
+    "AP50_single": 0.9393974713090284,
+    "AP50_square": 0.7723305921323966,
+    "AP50_triple": 0.7129341031871761
+  },
+  "integer": {
+    "mAP50": 0.8062149212638864,
+    "mAP50_95": 0.5164134763422693,
+    "AP50_single": 0.937282035761655,
+    "AP50_square": 0.7721408624686177,
+    "AP50_triple": 0.7092218655613864
+  },
+  "logit_diff_max": 0.648773193359375,
+  "logit_diff_mean": 0.04152476787567139,
+  "integer_accuracy_gate": true,
+  "max_allowed_absolute_drop": 0.005,
+  "note": "Same validation split used for training selection; not independent test data."
+}

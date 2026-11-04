@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/mac64_256x320/evaluate_candidate.py", line 84, in <module>
+    run('hls', ['bash', HERE/'run.sh'], marker=None)
+  File "/home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/mac64_256x320/evaluate_candidate.py", line 32, in run
+    raise RuntimeError(f'{stage} failed; exit={rc}; see {stage}.log')
+RuntimeError: hls failed; exit=1; see hls.log
+Traceback (most recent call last):
+  File "/home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/mac64_256x320/evaluate_candidate.py", line 86, in <module>
+    run('hls', ['bash', HERE/'run.sh'], marker=None)
+  File "/home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/mac64_256x320/evaluate_candidate.py", line 32, in run
+    raise RuntimeError(f'{stage} failed; exit={rc}; see {stage}.log')
+RuntimeError: hls failed; exit=1; see hls.log

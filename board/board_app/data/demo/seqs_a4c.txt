@@ -1,0 +1,4 @@
+ted_patient0092_4CH_full_cycle.npy 4 20020 711047 585320 2
+ted_patient0049_4CH_full_cycle.npy 4 20012 700219 546219 2
+ted_patient0012_4CH_full_cycle.npy 4 20003 804891 662922 2
+ted_patient0017_4CH_full_cycle.npy 4 20005 757969 624422 2

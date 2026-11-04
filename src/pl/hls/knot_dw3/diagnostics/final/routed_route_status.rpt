@@ -1,0 +1,44 @@
+Design Route Status
+                                               :      # nets :
+   ------------------------------------------- : ----------- :
+   # of logical nets.......................... :       84377 :
+       # of nets not needing routing.......... :       29682 :
+           # of internally routed nets........ :       29332 :
+           # of nets with no loads............ :         350 :
+       # of routable nets..................... :       54695 :
+           # of nets with fixed routing....... :        8520 :
+           # of fully routed nets............. :       53914 :
+       # of nets with routing errors.......... :         781 :
+           # of nets with resource conflicts.. :         781 :
+   ------------------------------------------- : ----------- :
+
+
+Nets with Routing Errors: (only the first 10 nets are listed)
+  shell_i/rp_accel/mul_9s_5s_14_1_1_U154/pr_29_reg_8499_reg[9]_i_10_n_6
+    Conflicting Routing Nodes:
+      INT_L_X30Y24/SW2BEG0
+      INT_L_X34Y24/WW4BEG1
+  shell_i/rp_accel/mul_9s_5s_14_1_1_U177/pr_52_reg_8614_reg[9]_i_10_n_7
+    Conflicting Routing Nodes: INT_R_X35Y15/WW4BEG0
+  shell_i/rp_accel/u_cnn/ap_CS_fsm[97]_i_2_n_2
+    Conflicting Routing Nodes: INT_R_X31Y18/LH12
+  shell_i/rp_accel/u_cnn/ap_CS_fsm_reg[135]_rep__2_n_2
+    Conflicting Routing Nodes: INT_L_X34Y10/WW4BEG1
+  shell_i/rp_accel/u_cnn/ap_CS_fsm_reg_n_2_[15]
+    Conflicting Routing Nodes:
+      INT_L_X30Y54/SS6BEG0
+      INT_R_X31Y55/SW2BEG0
+  shell_i/rp_accel/u_cnn/ap_CS_fsm_state120
+    Conflicting Routing Nodes: INT_R_X31Y0/EE4BEG2
+  shell_i/rp_accel/u_cnn/ap_CS_fsm_state13
+    Conflicting Routing Nodes:
+      INT_R_X31Y24/SR1BEG1
+      INT_R_X31Y26/SR1BEG1
+      INT_R_X35Y22/WW4BEG1
+  shell_i/rp_accel/u_cnn/ap_CS_fsm_state137
+    Conflicting Routing Nodes: INT_R_X31Y51/LVB12
+  shell_i/rp_accel/u_cnn/ap_CS_fsm_state138
+    Conflicting Routing Nodes: INT_R_X31Y19/EE4BEG0
+  shell_i/rp_accel/u_cnn/ap_CS_fsm_state143
+    Conflicting Routing Nodes: INT_R_X31Y5/EE4BEG0
+

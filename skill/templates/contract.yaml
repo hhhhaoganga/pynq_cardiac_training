@@ -1,0 +1,33 @@
+# Interface contract: the single source of truth for driver, tests and gates.
+# Copy to the project root as contract.yaml and edit. Example: HLS vector add
+#   void vadd(const int *a, const int *b, int *c, int n)  with m_axi + s_axilite.
+
+name: vadd
+board: pynq-z2                  # informational; any Zynq-7000 / ZU+ PYNQ board
+overlay: build/out/vadd.bit     # vadd.hwh must sit next to it with the same stem
+ip: vadd_0                      # IP instance name in the block design (ol.ip_dict key)
+control: hls                    # hls: ap_ctrl_hs at 0x00 (start/done/idle) | none: no start bit
+timeout_s: 2.0                  # max kernel run time before the driver gives up
+
+params:                         # symbols usable in shapes and scalar registers
+  n: 1024
+
+buffers:                        # pynq.allocate'd DDR buffers
+  - {name: a, dtype: int32, shape: [n], dir: in}
+  - {name: b, dtype: int32, shape: [n], dir: in}
+  - {name: c, dtype: int32, shape: [n], dir: out}
+
+registers:                      # byte offsets in the IP's AXI-Lite window
+  # Copy offsets from the HLS driver header: <solution>/impl/misc/drivers/*/src/x*_hw.h
+  # kind addr: physical address of a buffer; width 64 writes low word then high word.
+  - {name: a, offset: 0x10, width: 64, kind: addr, buffer: a}
+  - {name: b, offset: 0x1c, width: 64, kind: addr, buffer: b}
+  - {name: c, offset: 0x28, width: 64, kind: addr, buffer: c}
+  - {name: n, offset: 0x34, width: 32, kind: scalar, value: n}
+
+streams: []                     # AXI DMA streams instead of / besides m_axi, e.g.
+#  - {dma: axi_dma_0, send: a, recv: c}   # MM2S from buffer a, S2MM into buffer c
+
+golden: golden/model.py:run     # def run(inputs: dict, params: dict) -> dict of outputs
+compare:                        # per output buffer: exact | {atol: x} | {max_mismatch: k}
+  c: exact

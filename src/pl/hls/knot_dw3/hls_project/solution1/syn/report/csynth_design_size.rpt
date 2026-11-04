@@ -1,0 +1,76 @@
+================================================================
+== Design Size Report
+================================================================
+
+* Total Instructions per Compilation Phase
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Phase         | Step                        | Instructions | Description                                                                            |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Compile/Link  |                             | 19,569       | After all functions are compiled and linked into a single design                       |
+|               |                             |              |                                                                                        |
+| Unroll/Inline |                             |              | After user unroll and inline pragmas are applied                                       |
+|               | (1) unroll                  | 14,477       | user unroll pragmas are applied                                                        |
+|               | (2) simplification          |  9,214       | simplification of applied user unroll pragmas                                          |
+|               | (3) inline                  |  8,579       | user inline pragmas are applied                                                        |
+|               | (4) simplification          |  8,545       | simplification of applied user inline pragmas                                          |
+|               |                             |              |                                                                                        |
+| Array/Struct  |                             |              | After user array partition and struct aggregate/disaggregate pragmas are applied       |
+|               | (1) array partition         |  9,874       | user array partition pragmas are applied                                               |
+|               | (2) simplification          |  8,523       | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
+|               | (3) aggregate/disaggregate  |  8,523       | user struct aggregate/disaggregate pragmas are applied                                 |
+|               | (4) array reshape           |  8,522       | apply array reshape pragmas                                                            |
+|               | (5) access patterns         |  8,357       | array access pattern optmizations                                                      |
+|               |                             |              |                                                                                        |
+| Performance   |                             |              | After transformations are applied to meet performance pragma targets                   |
+|               | (1) loop simplification     |  8,308       | loop and instruction simplification                                                    |
+|               | (2) parallelization         |  8,242       | loops are unrolled or pipelined to meet performance targets                            |
+|               | (3) array partition         |  8,261       | arrays are partitioned to meet performance targets                                     |
+|               | (4) simplification          |  8,261       | simplification of design after performance transformations                             |
+|               |                             |              |                                                                                        |
+| HW Transforms |                             |              | After hardware transfomations                                                          |
+|               | (1) lowering                |  8,296       | initial conversion to HW specific instructions                                         |
+|               | (2) optimizations           |  8,329       | high level synthesis optimizations                                                     |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+
+* Instructions per Function for each Compilation Phase
++----------------+--------------------+------------------+-----------------+-----------------+-----------------+-----------------+
+| Function       | Location           | Compile/Link     | Unroll/Inline   | Array/Struct    | Performance     | HW Transforms   |
++----------------+--------------------+------------------+-----------------+-----------------+-----------------+-----------------+
+| + cnn_top      | cnn_engine.cpp:554 | 19,569           | 8,545           | 8,357           | 8,261           | 8,329           |
+|    load_tiles  | cnn_engine.cpp:112 |   243            |                 |                 |                 |                 |
+|    load_dw     | cnn_engine.cpp:125 |   297            |                 |                 |                 |                 |
+|    load_par    | cnn_engine.cpp:141 | 1,770 (3 calls)  |  216 (3 calls)  |  228 (3 calls)  |  225 (3 calls)  |  231 (3 calls)  |
+|  + rd_lb       | cnn_engine.cpp:484 |   175            |                 |                 |                 |                 |
+|     join       | cnn_engine.cpp:45  |   113            |                 |                 |                 |                 |
+|  + rd_vecs     | cnn_engine.cpp:79  |   692 (4 calls)  |                 |                 |                 |                 |
+|     join       | cnn_engine.cpp:45  |   452 (4 calls)  |                 |                 |                 |                 |
+|  + pw_pass     | cnn_engine.cpp:176 | 11,361 (3 calls) | 5,496 (3 calls) | 5,244 (3 calls) | 5,217 (3 calls) | 5,214 (3 calls) |
+|     lane       | cnn_engine.cpp:22  | 1,116 (6 calls)  |                 |                 |                 |                 |
+|     bias_l     | cnn_engine.cpp:64  |   159 (3 calls)  |                 |                 |                 |                 |
+|     mult_l     | cnn_engine.cpp:68  |   159 (3 calls)  |                 |                 |                 |                 |
+|     shift_l    | cnn_engine.cpp:72  |   159 (3 calls)  |                 |                 |                 |                 |
+|     requant    | cnn_engine.cpp:29  | 2,517 (3 calls)  |                 |                 |                 |                 |
+|     clampc     | cnn_engine.cpp:38  |   414 (3 calls)  |                 |                 |                 |                 |
+|    rd_img      | cnn_engine.cpp:497 |   183            |                 |                 |                 |                 |
+|    stem_im2col | cnn_engine.cpp:451 |   428            |  151            |  193            |  211            |  214            |
+|  + dw_pass     | cnn_engine.cpp:333 | 2,574            | 1,485           | 1,463           | 1,455           | 1,460           |
+|     lane       | cnn_engine.cpp:22  |   186            |                 |                 |                 |                 |
+|     bias_l     | cnn_engine.cpp:64  |    53            |                 |                 |                 |                 |
+|     mult_l     | cnn_engine.cpp:68  |    53            |                 |                 |                 |                 |
+|     shift_l    | cnn_engine.cpp:72  |    53            |                 |                 |                 |                 |
+|     requant    | cnn_engine.cpp:29  |   839            |                 |                 |                 |                 |
+|  + rd_pool     | cnn_engine.cpp:518 | 1,048            |  615            |  384            |  382            |  385            |
+|     join       | cnn_engine.cpp:45  |   113            |                 |                 |                 |                 |
+|     lane       | cnn_engine.cpp:22  |   558 (3 calls)  |                 |                 |                 |                 |
+|    wr_vecs     | cnn_engine.cpp:91  |   280 (2 calls)  |                 |                 |                 |                 |
+|    wr_hvecs    | cnn_engine.cpp:101 |    84            |                 |                 |                 |                 |
++----------------+--------------------+------------------+-----------------+-----------------+-----------------+-----------------+
+
+* Design Size Message Settings
++---------------------------------------------+--------+------------------------------------------------------------------+
+| Message Setting                             | Value  | Description                                                      |
++---------------------------------------------+--------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 100000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+--------+------------------------------------------------------------------+
+
+

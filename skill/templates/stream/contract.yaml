@@ -1,0 +1,32 @@
+# Interface contract, AXI-Stream + AXI DMA example. Copy to the project root as contract.yaml.
+#   void axis_scale(hls::stream<axis_t> &in_s, hls::stream<axis_t> &out_s, int n, int k, int b)
+#   y[i] = x[i] * k + b (int32 wrap); data moves through axi_dma_0 (MM2S -> kernel -> S2MM),
+#   n/k/b go through s_axilite; ap_ctrl_hs start/done like the vadd example.
+
+name: axis_scale
+board: pynq-z2                  # informational; any Zynq-7000 / ZU+ PYNQ board with AXI DMA
+overlay: build/out/axis_scale.bit
+ip: axis_scale_0                # HLS IP instance (holds the scalar registers)
+control: hls                    # kernel has ap_ctrl_hs; use none for a free-running stream IP
+timeout_s: 2.0
+
+params:
+  n: 1024                       # DMA length = n*4 bytes; AXI DMA c_sg_length_width must cover it
+  k: 3
+  b: 12345
+
+buffers:
+  - {name: x, dtype: int32, shape: [n], dir: in}
+  - {name: y, dtype: int32, shape: [n], dir: out}
+
+registers:                      # offsets from hls_prj/sol1/impl/misc/drivers/*/src/x*_hw.h
+  - {name: n, offset: 0x10, width: 32, kind: scalar, value: n}
+  - {name: k, offset: 0x18, width: 32, kind: scalar, value: k}
+  - {name: b, offset: 0x20, width: 32, kind: scalar, value: b}
+
+streams:                        # MM2S reads buffer x into in_s; S2MM writes out_s into buffer y
+  - {dma: axi_dma_0, send: x, recv: y}
+
+golden: golden/model.py:run
+compare:
+  y: exact

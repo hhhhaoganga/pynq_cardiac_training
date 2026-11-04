@@ -1,0 +1,9 @@
+{
+  "/home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/mac64_256x320/cnn_engine.cpp": "e6931d8e044bf135045672ecd99f086847c764f4e7d2be11227b06deededa9e3",
+  "/home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/mac64_256x320/cnn_engine.hpp": "f157fce5878a098fa1b2149017bc6d856b0778ec1de60ed6908452f366c13c35",
+  "/home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/mac64_256x320/check.tcl": "dc6fd58b1705183fb26eee86b6b84d931cee036cbaeb9b58e4ead8dd844fa342",
+  "/home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/mac64_256x320/fixtures/knot/knot_config.hpp": "a2c526384d629bad360b3acde0c996991d2fdf382bb9750d9fe689d18f83767b",
+  "/home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/mac64_256x320/fixtures/knot/mem_init.bin": "ef00844d8cd91a99796c83f5619e88bcfedfee595adc5831d015c5b0f5b801d4",
+  "/home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/mac64_256x320/fixtures/knot/golden.bin": "a971fb26d9fb1839c5676ef481d722bd81d9a0e0ab37592dbf9990af10a2fca9",
+  "/home/lizx/knot_hand_20261002/experiments/resolution_20261007/runs/256x320/qat/best.pth": "a14ebd458c2552ddce2a85fa9dc271e2f01c401517278259278dc7d43e8df930"
+}

@@ -1,0 +1,165 @@
+{
+  "program_beat": 264328,
+  "words": 299336,
+  "instructions": 4376,
+  "checks": [
+    {
+      "block": 0,
+      "addr": 1047360,
+      "size": 327680,
+      "label": "t3"
+    },
+    {
+      "block": 1,
+      "addr": 1375040,
+      "size": 81920,
+      "label": "t8"
+    },
+    {
+      "block": 2,
+      "addr": 1456960,
+      "size": 81920,
+      "label": "t12"
+    },
+    {
+      "block": 3,
+      "addr": 1538880,
+      "size": 40960,
+      "label": "t15"
+    },
+    {
+      "block": 4,
+      "addr": 1579840,
+      "size": 40960,
+      "label": "t19"
+    },
+    {
+      "block": 5,
+      "addr": 1620800,
+      "size": 15360,
+      "label": "t22"
+    },
+    {
+      "block": 6,
+      "addr": 1636160,
+      "size": 15360,
+      "label": "t26"
+    },
+    {
+      "block": 7,
+      "addr": 1651520,
+      "size": 15360,
+      "label": "t30"
+    },
+    {
+      "block": 8,
+      "addr": 1666880,
+      "size": 20480,
+      "label": "t33"
+    },
+    {
+      "block": 9,
+      "addr": 1687360,
+      "size": 20480,
+      "label": "t37"
+    },
+    {
+      "block": 10,
+      "addr": 1707840,
+      "size": 20480,
+      "label": "t41"
+    },
+    {
+      "block": 11,
+      "addr": 1728320,
+      "size": 8960,
+      "label": "t44"
+    },
+    {
+      "block": 12,
+      "addr": 1851200,
+      "size": 53760,
+      "label": "t66"
+    },
+    {
+      "block": 13,
+      "addr": 1737280,
+      "size": 8960,
+      "label": "t48"
+    },
+    {
+      "block": 14,
+      "addr": 1904960,
+      "size": 53760,
+      "label": "t67"
+    },
+    {
+      "block": 15,
+      "addr": 1746240,
+      "size": 8960,
+      "label": "t52"
+    },
+    {
+      "block": 16,
+      "addr": 1958720,
+      "size": 53760,
+      "label": "t68"
+    },
+    {
+      "block": 17,
+      "addr": 1755200,
+      "size": 8960,
+      "label": "t56"
+    },
+    {
+      "block": 18,
+      "addr": 1764160,
+      "size": 5120,
+      "label": "t58"
+    },
+    {
+      "block": 19,
+      "addr": 1769280,
+      "size": 20480,
+      "label": "t60"
+    },
+    {
+      "block": 20,
+      "addr": 1789760,
+      "size": 20480,
+      "label": "t62"
+    },
+    {
+      "block": 21,
+      "addr": 1810240,
+      "size": 20480,
+      "label": "t64"
+    },
+    {
+      "block": 22,
+      "addr": 1830720,
+      "size": 20480,
+      "label": "t65"
+    }
+  ],
+  "input": {
+    "byte_offset": 719680,
+    "height": 256,
+    "width": 320,
+    "pixel_bytes": 4,
+    "layout": "RGBX unsigned input codes"
+  },
+  "output": {
+    "byte_offset": 1830720,
+    "byte_count": 20480,
+    "height": 16,
+    "width": 20,
+    "padded_channels": 16,
+    "valid_channels": 5,
+    "dtype": "little-endian int32"
+  },
+  "original_sha256": "a2fe1d9efcc2b26c07577263fa7b2beac2a5ede19e3a315ccc2a055f438d16bc",
+  "schema": 1,
+  "abi": "SVH1",
+  "memory_sha256": "8987a9a7b81163e215816a5a29c0594ca24c9506afe327e0658bf63c6a20cc6e"
+}

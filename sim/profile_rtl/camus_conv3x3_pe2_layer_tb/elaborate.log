@@ -1,0 +1,15 @@
+Vivado Simulator v2024.2.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/lizx/Xilinx/Vivado/2024.2/bin/unwrapped/lnx64.o/xelab camus_conv3x3_pe2_layer_tb -s snap --debug typical 
+Multi-threading is on. Using 254 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.camus_conv_requant_relu_macpipe
+Compiling module work.camus_conv3x3_pe2_layer(LAYER_ID...
+Compiling module work.camus_conv3x3_pe2_layer_tb
+Built simulation snapshot snap

@@ -1,0 +1,329 @@
+{
+  "schema": 2,
+  "abi": "SVH1",
+  "program_beat": 459344,
+  "words": 507176,
+  "instructions": 5979,
+  "checks": [
+    {
+      "block": 0,
+      "original_block": 0,
+      "roi": 0,
+      "addr": 964480,
+      "size": 200704
+    },
+    {
+      "block": 1,
+      "original_block": 0,
+      "roi": 1,
+      "addr": 2801856,
+      "size": 200704
+    },
+    {
+      "block": 2,
+      "original_block": 1,
+      "roi": 0,
+      "addr": 1165184,
+      "size": 50176
+    },
+    {
+      "block": 3,
+      "original_block": 1,
+      "roi": 1,
+      "addr": 3002560,
+      "size": 50176
+    },
+    {
+      "block": 4,
+      "original_block": 2,
+      "roi": 0,
+      "addr": 1215360,
+      "size": 50176
+    },
+    {
+      "block": 5,
+      "original_block": 2,
+      "roi": 1,
+      "addr": 3052736,
+      "size": 50176
+    },
+    {
+      "block": 6,
+      "original_block": 3,
+      "roi": 0,
+      "addr": 1265536,
+      "size": 25088
+    },
+    {
+      "block": 7,
+      "original_block": 3,
+      "roi": 1,
+      "addr": 3102912,
+      "size": 25088
+    },
+    {
+      "block": 8,
+      "original_block": 4,
+      "roi": 0,
+      "addr": 1290624,
+      "size": 25088
+    },
+    {
+      "block": 9,
+      "original_block": 4,
+      "roi": 1,
+      "addr": 3128000,
+      "size": 25088
+    },
+    {
+      "block": 10,
+      "original_block": 5,
+      "roi": 0,
+      "addr": 1315712,
+      "size": 9408
+    },
+    {
+      "block": 11,
+      "original_block": 5,
+      "roi": 1,
+      "addr": 3153088,
+      "size": 9408
+    },
+    {
+      "block": 12,
+      "original_block": 6,
+      "roi": 0,
+      "addr": 1325120,
+      "size": 9408
+    },
+    {
+      "block": 13,
+      "original_block": 6,
+      "roi": 1,
+      "addr": 3162496,
+      "size": 9408
+    },
+    {
+      "block": 14,
+      "original_block": 7,
+      "roi": 0,
+      "addr": 1334528,
+      "size": 9408
+    },
+    {
+      "block": 15,
+      "original_block": 7,
+      "roi": 1,
+      "addr": 3171904,
+      "size": 9408
+    },
+    {
+      "block": 16,
+      "original_block": 8,
+      "roi": 0,
+      "addr": 1343936,
+      "size": 12544
+    },
+    {
+      "block": 17,
+      "original_block": 8,
+      "roi": 1,
+      "addr": 3181312,
+      "size": 12544
+    },
+    {
+      "block": 18,
+      "original_block": 9,
+      "roi": 0,
+      "addr": 1356480,
+      "size": 12544
+    },
+    {
+      "block": 19,
+      "original_block": 9,
+      "roi": 1,
+      "addr": 3193856,
+      "size": 12544
+    },
+    {
+      "block": 20,
+      "original_block": 10,
+      "roi": 0,
+      "addr": 1369024,
+      "size": 12544
+    },
+    {
+      "block": 21,
+      "original_block": 10,
+      "roi": 1,
+      "addr": 3206400,
+      "size": 12544
+    },
+    {
+      "block": 22,
+      "original_block": 11,
+      "roi": 0,
+      "addr": 1381568,
+      "size": 5488
+    },
+    {
+      "block": 23,
+      "original_block": 11,
+      "roi": 1,
+      "addr": 3218944,
+      "size": 5488
+    },
+    {
+      "block": 24,
+      "original_block": 12,
+      "roi": 0,
+      "addr": 1436544,
+      "size": 32928
+    },
+    {
+      "block": 25,
+      "original_block": 12,
+      "roi": 1,
+      "addr": 3273920,
+      "size": 32928
+    },
+    {
+      "block": 26,
+      "original_block": 13,
+      "roi": 0,
+      "addr": 1387072,
+      "size": 5488
+    },
+    {
+      "block": 27,
+      "original_block": 13,
+      "roi": 1,
+      "addr": 3224448,
+      "size": 5488
+    },
+    {
+      "block": 28,
+      "original_block": 14,
+      "roi": 0,
+      "addr": 1469504,
+      "size": 32928
+    },
+    {
+      "block": 29,
+      "original_block": 14,
+      "roi": 1,
+      "addr": 3306880,
+      "size": 32928
+    },
+    {
+      "block": 30,
+      "original_block": 15,
+      "roi": 0,
+      "addr": 1392576,
+      "size": 5488
+    },
+    {
+      "block": 31,
+      "original_block": 15,
+      "roi": 1,
+      "addr": 3229952,
+      "size": 5488
+    },
+    {
+      "block": 32,
+      "original_block": 16,
+      "roi": 0,
+      "addr": 1502464,
+      "size": 32928
+    },
+    {
+      "block": 33,
+      "original_block": 16,
+      "roi": 1,
+      "addr": 3339840,
+      "size": 32928
+    },
+    {
+      "block": 34,
+      "original_block": 17,
+      "roi": 0,
+      "addr": 1398080,
+      "size": 5488
+    },
+    {
+      "block": 35,
+      "original_block": 17,
+      "roi": 1,
+      "addr": 3235456,
+      "size": 5488
+    },
+    {
+      "block": 36,
+      "original_block": 18,
+      "roi": 0,
+      "addr": 1403584,
+      "size": 32928
+    },
+    {
+      "block": 37,
+      "original_block": 18,
+      "roi": 1,
+      "addr": 3240960,
+      "size": 32928
+    }
+  ],
+  "inputs": [
+    {
+      "byte_offset": 763776,
+      "height": 224,
+      "width": 224,
+      "pixel_bytes": 4,
+      "layout": "RGBX unsigned input codes",
+      "roi": 0
+    },
+    {
+      "byte_offset": 2601152,
+      "height": 224,
+      "width": 224,
+      "pixel_bytes": 4,
+      "layout": "RGBX unsigned input codes",
+      "roi": 1
+    }
+  ],
+  "outputs": [
+    {
+      "byte_offset": 1403584,
+      "byte_count": 32928,
+      "height": 7,
+      "width": 7,
+      "padded_channels": 672,
+      "valid_channels": 672,
+      "dtype": "int8 codes",
+      "roi": 0
+    },
+    {
+      "byte_offset": 3240960,
+      "byte_count": 32928,
+      "height": 7,
+      "width": 7,
+      "padded_channels": 672,
+      "valid_channels": 672,
+      "dtype": "int8 codes",
+      "roi": 1
+    }
+  ],
+  "traffic_bytes": {
+    "load_target_4": 508320,
+    "load_target_5": 127680,
+    "load_target_6": 49408,
+    "load_target_7": 58368,
+    "load_target_3": 602112,
+    "activation_writes": 1141504,
+    "load_target_0": 1078784,
+    "load_target_2": 471968,
+    "load_target_1": 197568,
+    "instructions": 382656
+  },
+  "total_transfer_bytes": 4618368,
+  "memory_sha256": "2a6c188ccdb53672e8809df22f9a8e161d0a9e3f903afd02faeaa2111829275c"
+}

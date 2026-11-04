@@ -1,0 +1,222 @@
+
+
+================================================================
+== Vitis HLS Report for 'load_par_Pipeline_VITIS_LOOP_145_1'
+================================================================
+* Date:           Wed Oct  7 11:41:36 2026
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        hls_project
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.300 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval |                    Pipeline                    |
+    |   min   |   max   |    min    |    max   | min | max |                      Type                      |
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |        3|      759|  30.000 ns|  7.590 us|    1|  757|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+---------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  |   Trip  |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  |  Count  | Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+---------+----------+
+        |- VITIS_LOOP_145_1  |        1|      757|         3|          1|          1|  0 ~ 756|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+---------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|    282|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|       -|      -|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       0|     72|    -|
+|Register         |        -|    -|     655|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|     655|    354|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------------------+----------+----+---+----+------------+------------+
+    |             Variable Name             | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------------------+----------+----+---+----+------------+------------+
+    |add_ln145_fu_295_p2                    |         +|   0|  0|  38|          31|           1|
+    |g_6_fu_328_p2                          |         +|   0|  0|  39|          32|           1|
+    |k_2_fu_356_p2                          |         +|   0|  0|  39|          32|           1|
+    |ap_block_pp0_stage0_11001              |       and|   0|  0|   2|           1|           1|
+    |ap_block_state2_pp0_stage0_iter1_grp1  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_156                       |       and|   0|  0|   2|           1|           1|
+    |ap_condition_585                       |       and|   0|  0|   2|           1|           1|
+    |icmp_ln145_fu_289_p2                   |      icmp|   0|  0|  39|          32|          32|
+    |icmp_ln153_fu_350_p2                   |      icmp|   0|  0|  39|          32|           3|
+    |icmp_ln155_fu_344_p2                   |      icmp|   0|  0|  39|          32|           4|
+    |icmp_ln159_fu_318_p2                   |      icmp|   0|  0|  39|          32|           5|
+    |ap_enable_pp0                          |       xor|   0|  0|   2|           1|           2|
+    +---------------------------------------+----------+----+---+----+------------+------------+
+    |Total                                  |          |   0|  0| 282|         228|          53|
+    +---------------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter2  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_j_load  |   9|          2|   31|         62|
+    |g_fu_170                 |   9|          2|   32|         64|
+    |gmem_blk_n_R             |   9|          2|    1|          2|
+    |j_fu_166                 |   9|          2|   31|         62|
+    |k_fu_162                 |   9|          2|   32|         64|
+    |phi_ln148_fu_158         |   9|          2|  448|        896|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  72|         16|  577|       1154|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------------------------+-----+----+-----+-----------+
+    |                    Name                   |  FF | LUT| Bits| Const Bits|
+    +-------------------------------------------+-----+----+-----+-----------+
+    |ap_CS_fsm                                  |    1|   0|    1|          0|
+    |ap_block_pp0_stage0_subdone_grp0_done_reg  |    1|   0|    1|          0|
+    |ap_done_reg                                |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1                    |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2                    |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter1_reg           |    1|   0|    1|          0|
+    |g_fu_170                                   |   32|   0|   32|          0|
+    |gmem_addr_read_reg_677                     |   64|   0|   64|          0|
+    |icmp_ln145_reg_669                         |    1|   0|    1|          0|
+    |icmp_ln153_reg_708                         |    1|   0|    1|          0|
+    |icmp_ln155_reg_703                         |    1|   0|    1|          0|
+    |icmp_ln159_reg_693                         |    1|   0|    1|          0|
+    |j_fu_166                                   |   31|   0|   31|          0|
+    |k_1_reg_673                                |   32|   0|   32|          0|
+    |k_fu_162                                   |   32|   0|   32|          0|
+    |phi_ln148_fu_158                           |  448|   0|  448|          0|
+    |trunc_ln159_reg_698                        |    6|   0|    6|          0|
+    +-------------------------------------------+-----+----+-----+-----------+
+    |Total                                      |  655|   0|  655|          0|
+    +-------------------------------------------+-----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------+-----+-----+------------+------------------------------------+--------------+
+|       RTL Ports       | Dir | Bits|  Protocol  |            Source Object           |    C Type    |
++-----------------------+-----+-----+------------+------------------------------------+--------------+
+|ap_clk                 |   in|    1|  ap_ctrl_hs|  load_par_Pipeline_VITIS_LOOP_145_1|  return value|
+|ap_rst                 |   in|    1|  ap_ctrl_hs|  load_par_Pipeline_VITIS_LOOP_145_1|  return value|
+|ap_start               |   in|    1|  ap_ctrl_hs|  load_par_Pipeline_VITIS_LOOP_145_1|  return value|
+|ap_done                |  out|    1|  ap_ctrl_hs|  load_par_Pipeline_VITIS_LOOP_145_1|  return value|
+|ap_idle                |  out|    1|  ap_ctrl_hs|  load_par_Pipeline_VITIS_LOOP_145_1|  return value|
+|ap_ready               |  out|    1|  ap_ctrl_hs|  load_par_Pipeline_VITIS_LOOP_145_1|  return value|
+|m_axi_gmem_0_AWVALID   |  out|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_AWREADY   |   in|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_AWADDR    |  out|   32|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_AWID      |  out|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_AWLEN     |  out|   32|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_AWSIZE    |  out|    3|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_AWBURST   |  out|    2|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_AWLOCK    |  out|    2|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_AWCACHE   |  out|    4|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_AWPROT    |  out|    3|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_AWQOS     |  out|    4|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_AWREGION  |  out|    4|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_AWUSER    |  out|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_WVALID    |  out|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_WREADY    |   in|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_WDATA     |  out|   64|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_WSTRB     |  out|    8|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_WLAST     |  out|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_WID       |  out|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_WUSER     |  out|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_ARVALID   |  out|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_ARREADY   |   in|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_ARADDR    |  out|   32|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_ARID      |  out|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_ARLEN     |  out|   32|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_ARSIZE    |  out|    3|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_ARBURST   |  out|    2|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_ARLOCK    |  out|    2|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_ARCACHE   |  out|    4|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_ARPROT    |  out|    3|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_ARQOS     |  out|    4|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_ARREGION  |  out|    4|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_ARUSER    |  out|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_RVALID    |   in|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_RREADY    |  out|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_RDATA     |   in|   64|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_RLAST     |   in|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_RID       |   in|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_RFIFONUM  |   in|    9|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_RUSER     |   in|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_RRESP     |   in|    2|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_BVALID    |   in|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_BREADY    |  out|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_BRESP     |   in|    2|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_BID       |   in|    1|       m_axi|                                gmem|       pointer|
+|m_axi_gmem_0_BUSER     |   in|    1|       m_axi|                                gmem|       pointer|
+|base_cast              |   in|    5|     ap_none|                           base_cast|        scalar|
+|mul                    |   in|   32|     ap_none|                                 mul|        scalar|
+|sext_ln145             |   in|   29|     ap_none|                          sext_ln145|        scalar|
+|shift_p_address1       |  out|    7|   ap_memory|                             shift_p|         array|
+|shift_p_ce1            |  out|    1|   ap_memory|                             shift_p|         array|
+|shift_p_we1            |  out|    1|   ap_memory|                             shift_p|         array|
+|shift_p_d1             |  out|   48|   ap_memory|                             shift_p|         array|
+|bias_p_address1        |  out|    7|   ap_memory|                              bias_p|         array|
+|bias_p_ce1             |  out|    1|   ap_memory|                              bias_p|         array|
+|bias_p_we1             |  out|    1|   ap_memory|                              bias_p|         array|
+|bias_p_d1              |  out|  192|   ap_memory|                              bias_p|         array|
+|mult_p_address1        |  out|    7|   ap_memory|                              mult_p|         array|
+|mult_p_ce1             |  out|    1|   ap_memory|                              mult_p|         array|
+|mult_p_we1             |  out|    1|   ap_memory|                              mult_p|         array|
+|mult_p_d1              |  out|  256|   ap_memory|                              mult_p|         array|
++-----------------------+-----+-----+------------+------------------------------------+--------------+
+

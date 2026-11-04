@@ -1,0 +1,21 @@
+
+****** xsim v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Wed Nov  4 05:38:26 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/snap/xsim_script.tcl
+# xsim {snap} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+WARNING: File input.hex referenced on /home/lizx/simrun_20261104/profile_rtl/camus_conv_requant_relu_macpipe.sv at line 72 cannot be opened for reading. Please ensure that this file is available in the current working directory or parent directory of xsim.dir location specified via -xsimdir switch.
+WARNING: File expected.hex referenced on /home/lizx/simrun_20261104/profile_rtl/camus_conv_requant_relu_macpipe.sv at line 72 cannot be opened for reading. Please ensure that this file is available in the current working directory or parent directory of xsim.dir location specified via -xsimdir switch.
+CAMUS real 256x256 first-layer golden PASS beats=524288 pixels=65536
+$finish called at time : 88557315 ns : File "/home/lizx/simrun_20261104/profile_rtl/camus_pad2_stream_real_tb.sv" Line 94
+run: Time (s): cpu = 00:00:00.27 ; elapsed = 00:02:25 . Memory (MB): peak = 1353.746 ; gain = 8.004 ; free physical = 45826 ; free virtual = 941488
+exit
+INFO: xsimkernel Simulation Memory Usage: 262632 KB (Peak: 319904 KB), Simulation CPU Usage: 145880 ms
+INFO: [Common 17-206] Exiting xsim at Wed Nov  4 05:40:53 2026...

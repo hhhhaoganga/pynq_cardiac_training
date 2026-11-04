@@ -1,0 +1,109 @@
+{
+ "model": {
+  "name": "SE StreamSkipUNet",
+  "channels": [
+   4,
+   8,
+   16,
+   32
+  ],
+  "params": 32184,
+  "mac_per_frame": 149684736,
+  "input": "256x256 CAMUS"
+ },
+ "cpu": {
+  "platform": "Cortex-A9 x2, float32 NEON -O3",
+  "idle": {
+   "1thread_ms": 890.3,
+   "2thread_ms": 549.2,
+   "fps_2t": 1.82
+  },
+  "contended": {
+   "1thread_ms": 1036.0,
+   "2thread_ms": 687.5
+  },
+  "breakdown_2t_idle_ms": {
+   "encoder": 177.6,
+   "decoder": 364.7,
+   "argmax": 6.6
+  },
+  "match_pytorch": {
+   "pixel_agreement": 1.0,
+   "max_logit_diff": 1.34e-05
+  }
+ },
+ "pl": {
+  "precision": "W4A8",
+  "serial_latency_ms": 69.4,
+  "pipelined_fps": 28.68,
+  "proto_check": "PASS"
+ },
+ "speedup": {
+  "latency": 7.9,
+  "throughput": 15.8
+ },
+ "accuracy_dice": {
+  "float32": 0.8833,
+  "w4a8": 0.8835
+ },
+ "resources_seg_full": {
+  "LUT": 34041,
+  "FF": 35588,
+  "BRAM36": 108,
+  "DSP": 115,
+  "of": {
+   "LUT": 53200,
+   "FF": 106400,
+   "BRAM36": 140,
+   "DSP": 220
+  }
+ },
+ "resources_rm_seg": {
+  "LUT": 30241,
+  "FF": 29992,
+  "RAMB36": 98,
+  "RAMB18": 12,
+  "DSP": 115
+ },
+ "resources_rm_shape": {
+  "LUT": 13113,
+  "FF": 22150,
+  "RAMB36": 50,
+  "RAMB18": 12,
+  "DSP": 134
+ },
+ "timing_seg": {
+  "WNS_ns": 0.218,
+  "WHS_ns": 0.019
+ },
+ "clocks_MHz": {
+  "fclk0": 100,
+  "fclk1": 142.9,
+  "fclk2": 200,
+  "hdmi_pixel": 74.25
+ },
+ "power_W_vectorless_low_confidence": {
+  "seg_total": 2.055,
+  "ps7": 1.268,
+  "rm_seg": 0.34,
+  "rm_shape": 0.411,
+  "static": 0.165
+ },
+ "ddr": {
+  "assumptions": "DDR traffic estimate of the PL segmentation (rm_seg) per frame, from tensor sizes.\n\nNot measured: the static shell has no AXI performance monitor. Weights are in on-chip ROM\n(pl_rom_se_candidate), activations INT8. Lower bound: frame in, mask out, skips + bottleneck\nwritten once and read once, two history bottlenecks read. Upper bound: every layer output\nwritten to DDR and read back once (the workspace has padded / skip / scratch regions).",
+  "fps": 28.68,
+  "seg_bytes_per_frame": {
+   "lower": 1179648,
+   "upper": 6651904
+  },
+  "seg_MBps": {
+   "lower": 33.8,
+   "upper": 190.8
+  },
+  "hdmi_vdma_MBps": 221.2,
+  "hp_port_peak_MBps": {
+   "64bit_at_100MHz": 800,
+   "64bit_at_200MHz": 1600
+  }
+ }
+}

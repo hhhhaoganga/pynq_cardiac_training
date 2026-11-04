@@ -1,0 +1,129 @@
+{
+  "input_hw": [
+    256,
+    320
+  ],
+  "pw_parallel_mac": 64,
+  "clock_target_mhz": 100,
+  "rtl_cosim_pass": true,
+  "complete_inference_cycles": 3805831,
+  "simulated_core_ms": 38.05831,
+  "remaining_ms_at_20fps": 11.941690000000001,
+  "fps_if_extra_ms": {
+    "5": 23.224320694425767,
+    "10": 20.80805588045023,
+    "15": 18.847189064257794
+  },
+  "actual_ooc_resources": {
+    "LUT": 22572.0,
+    "FF": 21380.0,
+    "BRAM36": 78.5,
+    "DSP": 88.0
+  },
+  "baseline_128mac_320x416_ooc": {
+    "LUT": 26707,
+    "FF": 24076,
+    "BRAM36": 86.5,
+    "DSP": 88
+  },
+  "buffer_profile": {
+    "profile": "knot_dw3",
+    "dw_taps": 3,
+    "dw_beats": 4,
+    "nslot": 4,
+    "tile_in": 4,
+    "buffer_use": {
+      "outh": 40,
+      "lb_slot": 480,
+      "pin": 320,
+      "dwb": 320,
+      "outb": 160,
+      "resb": 160,
+      "wt": 1176,
+      "wd": 63,
+      "par": 21,
+      "img_w": 320
+    }
+  },
+  "integer_validation": {
+    "variant": "knot_dw3_e3_w4a8_v1",
+    "samples": 559,
+    "fake_quant": {
+      "mAP50": 0.9628459657887173,
+      "mAP50_95": 0.6681001289294203,
+      "AP50_single": 0.9862293454483063,
+      "AP50_square": 0.9621862668719209,
+      "AP50_triple": 0.9401222850459248
+    },
+    "integer": {
+      "mAP50": 0.9631535108596584,
+      "mAP50_95": 0.6683966593073704,
+      "AP50_single": 0.9873855869306041,
+      "AP50_square": 0.9615405175641523,
+      "AP50_triple": 0.9405344280842189
+    },
+    "logit_diff_max": 0.5393004417419434,
+    "logit_diff_mean": 0.04294424131512642,
+    "integer_accuracy_gate": true,
+    "max_allowed_absolute_drop": 0.005,
+    "note": "Same validation split used for training selection; not independent test data."
+  },
+  "qat_comparison": {
+    "qat": {
+      "best_epoch": 10,
+      "metrics": {
+        "mAP50": 0.9647650282466183,
+        "mAP50_95": 0.6698650090656137,
+        "AP50_single": 0.9934993089441958,
+        "AP50_square": 0.9608543879110616,
+        "AP50_triple": 0.9399413878845976
+      },
+      "checkpoint_sha256": "a14ebd458c2552ddce2a85fa9dc271e2f01c401517278259278dc7d43e8df930",
+      "stage": "qat",
+      "note": "Validation set used for checkpoint selection; not independent test performance."
+    },
+    "accepted_float": {
+      "mAP50": 0.9822065110369667,
+      "mAP50_95": 0.6966088057584202,
+      "AP50_single": 0.9971446244293796,
+      "AP50_square": 0.9853419441607407,
+      "AP50_triple": 0.9641329645207797
+    },
+    "full_resolution_qat": {
+      "mAP50": 0.9868477765803747,
+      "mAP50_95": 0.7305095180520174,
+      "AP50_single": 0.9892991536290093,
+      "AP50_square": 0.9941890458909051,
+      "AP50_triple": 0.9770551302212099
+    },
+    "additional_quantization_drops": {
+      "mAP50": 0.017441482790348406,
+      "mAP50_95": 0.026743796692806465,
+      "AP50_single": 0.0036453154851837644,
+      "AP50_square": 0.024487556249679132,
+      "AP50_triple": 0.0241915766361821
+    },
+    "drops_vs_full_resolution_qat": {
+      "mAP50": 0.022082748333756452,
+      "mAP50_95": 0.06064450898640361,
+      "AP50_single": -0.004200155315186471,
+      "AP50_square": 0.033334657979843474,
+      "AP50_triple": 0.037113742336612354
+    },
+    "additional_quantization_limits": {
+      "mAP50": 0.01,
+      "mAP50_95": 0.03,
+      "AP50_single": 0.02,
+      "AP50_square": 0.02,
+      "AP50_triple": 0.02
+    },
+    "float_resolution_tradeoff_accepted": true,
+    "additional_quantization_gate": false
+  },
+  "physical_implementation_started": false,
+  "limitations": [
+    "No placed Slice count or routing/timing closure yet.",
+    "AXI simulation timing is not actual DDR or PS end-to-end latency.",
+    "Accuracy uses the checkpoint-selection validation split, not an independent test."
+  ]
+}

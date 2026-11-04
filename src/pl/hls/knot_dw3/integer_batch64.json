@@ -1,0 +1,19 @@
+{
+  "batch_size": 64,
+  "samples": 559,
+  "fake_quant": {
+    "mAP50": 0.9623865977623792,
+    "mAP50_95": 0.6701375354959795,
+    "AP50_single": 0.9860862053535009,
+    "AP50_square": 0.960958841748145,
+    "AP50_triple": 0.9401147461854918
+  },
+  "integer": {
+    "mAP50": 0.9631535108596584,
+    "mAP50_95": 0.6683966593073704,
+    "AP50_single": 0.9873855869306041,
+    "AP50_square": 0.9615405175641523,
+    "AP50_triple": 0.9405344280842189
+  },
+  "note": "Matches training validation batch size; same selected validation set, not an independent test."
+}

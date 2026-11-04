@@ -1,0 +1,22 @@
+Command: pr_verify /home/lizx/pynq_dfx_jy62_20260930/out/shell_dfx_wide_pr/dfx_routed_seg.dcp /home/lizx/pynq_dfx_jy62_20260930/out/shell_dfx_wide_pr/dfx_routed_shape.dcp -file /home/lizx/pynq_dfx_jy62_20260930/out/shell_dfx_wide_pr/pr_verify.rpt
+Fri Oct  2 04:55:33 2026
+
+INFO: [Constraints 18-1020] PR Verify Summary:
+DCP1: /home/lizx/pynq_dfx_jy62_20260930/out/shell_dfx_wide_pr/dfx_routed_seg.dcp
+  Number of reconfigurable modules compared = 1
+  Number of partition pins compared         = 401
+  Number of static tiles compared           = 15856
+  Number of static sites compared           = 1572
+  Number of static cells compared           = 11160
+  Number of static routed nodes compared    = 121336
+  Number of static routed pips compared     = 111841
+
+DCP2: /home/lizx/pynq_dfx_jy62_20260930/out/shell_dfx_wide_pr/dfx_routed_shape.dcp
+  Number of reconfigurable modules compared = 1
+  Number of partition pins compared         = 401
+  Number of static tiles compared           = 15856
+  Number of static sites compared           = 1572
+  Number of static cells compared           = 11160
+  Number of static routed nodes compared    = 121336
+  Number of static routed pips compared     = 111841
+INFO: [Vivado 12-3253] PR_VERIFY: check points /home/lizx/pynq_dfx_jy62_20260930/out/shell_dfx_wide_pr/dfx_routed_seg.dcp and /home/lizx/pynq_dfx_jy62_20260930/out/shell_dfx_wide_pr/dfx_routed_shape.dcp are compatible

@@ -1,0 +1,24 @@
+{
+  "pid": 298850,
+  "started": 1791373125.9133499,
+  "stage": "ready_for_resource_and_cycle_review",
+  "accuracy_warning": true,
+  "command": [
+    "/home/lizx/Xilinx/Vivado/2024.2/bin/vivado",
+    "-mode",
+    "batch",
+    "-nojournal",
+    "-log",
+    "/home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/mac64_256x320/resource_review/audit/vivado.log",
+    "-source",
+    "/home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/audit_u_capacity.tcl",
+    "-tclargs",
+    "/home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/mac64_256x320/resource_review/synthesis/knot_synth.dcp",
+    "/home/lizx/pynq_dfx_jy62_20260930/out/shell_dfx_wide_pr/dfx_routed_shape.dcp",
+    "/home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/mac64_256x320/resource_review/audit",
+    "/home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/mac64_256x320/floorplan.tcl"
+  ],
+  "resumed_for_parallel_resource_review": true,
+  "finished": 1791373846.9879913,
+  "note": "No physical implementation started; actual Slice packing and board20fps unverified."
+}

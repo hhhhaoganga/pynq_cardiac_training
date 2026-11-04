@@ -1,0 +1,13 @@
+[Unit]
+Description=Dual ROI hand SV backend (synchronous worker requests only)
+After=bootpy.service
+[Service]
+Type=simple
+ExecStartPre=/bin/rm -f /run/hand-sv.sock
+WorkingDirectory=/home/xilinx/hand_release_20261008/runtime
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=OMP_NUM_THREADS=1
+Nice=-5
+ExecStart=/usr/bin/python3 -u board_service.py
+ExecStopPost=/bin/rm -f /run/hand-sv.sock
+Restart=no

@@ -1,0 +1,13 @@
+{
+  "best_epoch": 10,
+  "metrics": {
+    "mAP50": 0.9647650282466183,
+    "mAP50_95": 0.6698650090656137,
+    "AP50_single": 0.9934993089441958,
+    "AP50_square": 0.9608543879110616,
+    "AP50_triple": 0.9399413878845976
+  },
+  "checkpoint_sha256": "a14ebd458c2552ddce2a85fa9dc271e2f01c401517278259278dc7d43e8df930",
+  "stage": "qat",
+  "note": "Validation set used for checkpoint selection; not independent test performance."
+}

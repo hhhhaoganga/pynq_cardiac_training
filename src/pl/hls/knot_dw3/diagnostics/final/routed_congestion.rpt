@@ -1,0 +1,52 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Wed Oct  7 13:04:35 2026
+| Host         : hlab running 64-bit Ubuntu 24.04.3 LTS
+| Command      : report_design_analysis -congestion -min_congestion_level 3 -file /home/lizx/knot_hand_20261002/integration_knot_dw3/pynq_dfx/hls_knot_dw3/mac64_256x320/impl_20261007/routed_congestion.rpt
+| Design       : shell_wrapper
+| Device       : xc7z020
+| Design State : Fully Placed
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Design Analysis
+
+Table of Contents
+-----------------
+1. Placer Final Level Congestion Reporting
+2. Initial Estimated Router Congestion Reporting
+3. SLR Net Crossing Reporting
+
+1. Placer Final Level Congestion Reporting
+------------------------------------------
+
++-----------+-------+-------+------------+---------------------------------+---------------+---------------+-----+--------+------+------+------+------+-------+-----+------------------------------------------------------------------------------------------------------------------------+
+| Direction |  Type | Level | Congestion |              Window             | Combined LUTs | Avg LUT Input | LUT | LUTRAM | Flop | MUXF | RAMB |  DSP | CARRY | SRL |                                                       Cell Names                                                       |
++-----------+-------+-------+------------+---------------------------------+---------------+---------------+-----+--------+------+------+------+------+-------+-----+------------------------------------------------------------------------------------------------------------------------+
+| South     | Short |     3 |        94% | (CLBLM_R_X11Y35,CLBLL_L_X18Y42) |            0% |         5.250 | 91% | 0%     |  47% |   0% | 100% | 100% |    6% |  0% | shell_i/rp_accel/u_cnn/grp_pw_pass_fu_770/grp_pw_pass_Pipeline_VITIS_LOOP_195_1_fu_194(90%),shell_i/rp_accel/u_cnn(9%) |
++-----------+-------+-------+------------+---------------------------------+---------------+---------------+-----+--------+------+------+------+------+-------+-----+------------------------------------------------------------------------------------------------------------------------+
+* No congestion windows are found above level 3
+
+
+2. Initial Estimated Router Congestion Reporting
+------------------------------------------------
+
++-----------+--------+-------+------------------+---------------------------------+---------------+---------------+-----+--------+------+------+------+------+-------+-----+-------------------------------------------------------------------------------------------------------------------------+
+| Direction |  Type  | Level | Percentage Tiles |              Window             | Combined LUTs | Avg LUT Input | LUT | LUTRAM | Flop | MUXF | RAMB |  DSP | CARRY | SRL |                                                        Cell Names                                                       |
++-----------+--------+-------+------------------+---------------------------------+---------------+---------------+-----+--------+------+------+------+------+-------+-----+-------------------------------------------------------------------------------------------------------------------------+
+| East      | Global |     4 |           0.937% | (CLBLL_L_X28Y2,CLBLM_R_X31Y45)  |            3% |         4.197 | 79% | 0%     |  33% |   0% | NA   | NA   |    5% |  5% | shell_i/rp_accel/u_cnn/grp_pw_pass_fu_770/grp_pw_pass_Pipeline_VITIS_LOOP_195_1_fu_194(59%),shell_i/rp_accel/u_cnn(38%) |
+| West      | Global |     3 |           0.820% | (CLBLM_L_X34Y0,CLBLL_R_X35Y41)  |           10% |         2.688 | 54% | 0%     |  35% |   1% | NA   | NA   |    2% |  5% | shell_i/rp_accel/u_cnn(64%),shell_i/rp_accel/u_cnn/grp_pw_pass_fu_770/grp_pw_pass_Pipeline_VITIS_LOOP_195_1_fu_194(34%) |
+| East      | Long   |     3 |           6.081% | (CLBLM_L_X24Y14,CLBLM_R_X31Y21) |            2% |         4.246 | 83% | 0%     |  19% |   0% | NA   | 100% |    7% |  0% | shell_i/rp_accel/u_cnn(54%),shell_i/rp_accel/u_cnn/grp_pw_pass_fu_770/grp_pw_pass_Pipeline_VITIS_LOOP_195_1_fu_194(42%) |
+| East      | Short  |     3 |           1.883% | (CLBLM_L_X24Y38,CLBLM_R_X31Y45) |            2% |         5.375 | 87% | 0%     |  34% |   1% | NA   | 100% |    4% |  7% | shell_i/rp_accel/u_cnn/grp_pw_pass_fu_770/grp_pw_pass_Pipeline_VITIS_LOOP_195_1_fu_194(87%),shell_i/rp_accel/u_cnn(12%) |
++-----------+--------+-------+------------------+---------------------------------+---------------+---------------+-----+--------+------+------+------+------+-------+-----+-------------------------------------------------------------------------------------------------------------------------+
+
+
+3. SLR Net Crossing Reporting
+-----------------------------
+
++------------+-----------------------------+
+| Cell Names | Number of Nets crossing SLR |
++------------+-----------------------------+
+* The current part is not an SSI device
+
+

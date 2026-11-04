@@ -1,0 +1,505 @@
+{
+  "format": "epivox-hls-fixtures-v1",
+  "case_count": 150,
+  "case_ids": [
+    "Full_Heart_Mesh_222",
+    "Full_Heart_Mesh_634",
+    "Full_Heart_Mesh_928",
+    "Full_Heart_Mesh_861",
+    "Full_Heart_Mesh_692",
+    "Full_Heart_Mesh_450",
+    "Full_Heart_Mesh_731",
+    "Full_Heart_Mesh_964",
+    "Full_Heart_Mesh_161",
+    "Full_Heart_Mesh_780",
+    "Full_Heart_Mesh_674",
+    "Full_Heart_Mesh_630",
+    "Full_Heart_Mesh_759",
+    "Full_Heart_Mesh_887",
+    "Full_Heart_Mesh_650",
+    "Full_Heart_Mesh_386",
+    "Full_Heart_Mesh_519",
+    "Full_Heart_Mesh_271",
+    "Full_Heart_Mesh_164",
+    "Full_Heart_Mesh_313",
+    "Full_Heart_Mesh_782",
+    "Full_Heart_Mesh_813",
+    "Full_Heart_Mesh_831",
+    "Full_Heart_Mesh_106",
+    "Full_Heart_Mesh_494",
+    "Full_Heart_Mesh_38",
+    "Full_Heart_Mesh_600",
+    "Full_Heart_Mesh_183",
+    "Full_Heart_Mesh_919",
+    "Full_Heart_Mesh_699",
+    "Full_Heart_Mesh_423",
+    "Full_Heart_Mesh_839",
+    "Full_Heart_Mesh_690",
+    "Full_Heart_Mesh_344",
+    "Full_Heart_Mesh_904",
+    "Full_Heart_Mesh_608",
+    "Full_Heart_Mesh_445",
+    "Full_Heart_Mesh_723",
+    "Full_Heart_Mesh_508",
+    "Full_Heart_Mesh_39",
+    "Full_Heart_Mesh_205",
+    "Full_Heart_Mesh_707",
+    "Full_Heart_Mesh_478",
+    "Full_Heart_Mesh_637",
+    "Full_Heart_Mesh_146",
+    "Full_Heart_Mesh_972",
+    "Full_Heart_Mesh_568",
+    "Full_Heart_Mesh_376",
+    "Full_Heart_Mesh_191",
+    "Full_Heart_Mesh_188",
+    "Full_Heart_Mesh_718",
+    "Full_Heart_Mesh_85",
+    "Full_Heart_Mesh_892",
+    "Full_Heart_Mesh_714",
+    "Full_Heart_Mesh_815",
+    "Full_Heart_Mesh_199",
+    "Full_Heart_Mesh_609",
+    "Full_Heart_Mesh_507",
+    "Full_Heart_Mesh_393",
+    "Full_Heart_Mesh_778",
+    "Full_Heart_Mesh_230",
+    "Full_Heart_Mesh_976",
+    "Full_Heart_Mesh_894",
+    "Full_Heart_Mesh_779",
+    "Full_Heart_Mesh_884",
+    "Full_Heart_Mesh_66",
+    "Full_Heart_Mesh_504",
+    "Full_Heart_Mesh_541",
+    "Full_Heart_Mesh_785",
+    "Full_Heart_Mesh_210",
+    "Full_Heart_Mesh_472",
+    "Full_Heart_Mesh_384",
+    "Full_Heart_Mesh_901",
+    "Full_Heart_Mesh_688",
+    "Full_Heart_Mesh_99",
+    "Full_Heart_Mesh_252",
+    "Full_Heart_Mesh_97",
+    "Full_Heart_Mesh_932",
+    "Full_Heart_Mesh_817",
+    "Full_Heart_Mesh_661",
+    "Full_Heart_Mesh_461",
+    "Full_Heart_Mesh_583",
+    "Full_Heart_Mesh_49",
+    "Full_Heart_Mesh_940",
+    "Full_Heart_Mesh_88",
+    "Full_Heart_Mesh_770",
+    "Full_Heart_Mesh_241",
+    "Full_Heart_Mesh_516",
+    "Full_Heart_Mesh_152",
+    "Full_Heart_Mesh_761",
+    "Full_Heart_Mesh_215",
+    "Full_Heart_Mesh_225",
+    "Full_Heart_Mesh_48",
+    "Full_Heart_Mesh_998",
+    "Full_Heart_Mesh_63",
+    "Full_Heart_Mesh_835",
+    "Full_Heart_Mesh_405",
+    "Full_Heart_Mesh_885",
+    "Full_Heart_Mesh_857",
+    "Full_Heart_Mesh_148",
+    "Full_Heart_Mesh_880",
+    "Full_Heart_Mesh_646",
+    "Full_Heart_Mesh_876",
+    "Full_Heart_Mesh_676",
+    "Full_Heart_Mesh_897",
+    "Full_Heart_Mesh_53",
+    "Full_Heart_Mesh_961",
+    "Full_Heart_Mesh_722",
+    "Full_Heart_Mesh_967",
+    "Full_Heart_Mesh_573",
+    "Full_Heart_Mesh_675",
+    "Full_Heart_Mesh_613",
+    "Full_Heart_Mesh_72",
+    "Full_Heart_Mesh_250",
+    "Full_Heart_Mesh_740",
+    "Full_Heart_Mesh_175",
+    "Full_Heart_Mesh_954",
+    "Full_Heart_Mesh_941",
+    "Full_Heart_Mesh_462",
+    "Full_Heart_Mesh_895",
+    "Full_Heart_Mesh_200",
+    "Full_Heart_Mesh_406",
+    "Full_Heart_Mesh_251",
+    "Full_Heart_Mesh_856",
+    "Full_Heart_Mesh_145",
+    "Full_Heart_Mesh_303",
+    "Full_Heart_Mesh_775",
+    "Full_Heart_Mesh_42",
+    "Full_Heart_Mesh_274",
+    "Full_Heart_Mesh_220",
+    "Full_Heart_Mesh_369",
+    "Full_Heart_Mesh_671",
+    "Full_Heart_Mesh_888",
+    "Full_Heart_Mesh_524",
+    "Full_Heart_Mesh_144",
+    "Full_Heart_Mesh_872",
+    "Full_Heart_Mesh_358",
+    "Full_Heart_Mesh_110",
+    "Full_Heart_Mesh_391",
+    "Full_Heart_Mesh_838",
+    "Full_Heart_Mesh_743",
+    "Full_Heart_Mesh_682",
+    "Full_Heart_Mesh_702",
+    "Full_Heart_Mesh_530",
+    "Full_Heart_Mesh_487",
+    "Full_Heart_Mesh_307",
+    "Full_Heart_Mesh_619",
+    "Full_Heart_Mesh_455",
+    "Full_Heart_Mesh_629",
+    "Full_Heart_Mesh_866"
+  ],
+  "test_evaluated": false,
+  "source_audit_report_sha256": "f31c49116d1e018d85b7648cdf419b281ad0ead18a7bb78fd481d945950e9e2a",
+  "integer_contract_sha256": "01547fd71ad3b06eb181e1c7336e6a54d4ad895fce1f96791a59b0b2434fab7b",
+  "source_package_hashes": {
+    "package.json": "e1c6f67aa925af9779c13d97fd80f8d1ac0539066cb6760b1d804d23e2e51279",
+    "layer00_weight_int8.npy": "96ec6f95f738ba39565222f5e8f2d4cf4dfdf2a336964e9d772a86a4c6e91952",
+    "layer00_bias_int32.npy": "0d831099dab72e884d31af4d82a29ce77adf0f326ed06b4c4b950abfb1bcdf0e",
+    "layer01_weight_int8.npy": "37a2548581d7eed8aab99844a822a24db602e03110af6732c641ce8df9f93042",
+    "layer01_bias_int32.npy": "ddb40c35e12b4f2bc4186ee37971981fd2ff4d542373cc227ffc106579724b4a",
+    "layer02_weight_int8.npy": "f53f62e637143590c05d2eaa83d187dc95b5c069621bf9dae67ea2164c184a6e",
+    "layer02_bias_int32.npy": "a947e714495f792cdc336a6a26339fed9085520be189a1ef6a37317c98ba613c",
+    "layer03_weight_int8.npy": "e49506a030e8558bb498912b71fa02a89dac1220b4f116a3eaad6bcea93c484c",
+    "layer03_bias_int32.npy": "0b521d015541795e9d62158fee9481521773abb992687b41bd730f91fc53286f",
+    "layer04_weight_int8.npy": "52407e6dd66d030c8a1254a424f9819a69de3549f7255a365227623fce068640",
+    "layer04_bias_int32.npy": "82cdfdc828240eb44336d7db893c4d6f65bc63aec9f171087c483eb779dba9b3",
+    "layer05_weight_int8.npy": "92a02fc1e40f2b5370845fd538ee75c40e13292708582096e0f955a3e83fd1f9",
+    "layer05_bias_int32.npy": "7aa0217375d614c5ac9ca8ad065c0872f71dbcec6579652ab69e83ab037df4a4"
+  },
+  "representative_indices": [
+    13,
+    73,
+    130
+  ],
+  "traces": [
+    {
+      "case_index": 130,
+      "case_id": "Full_Heart_Mesh_369",
+      "layer": "conv1",
+      "file": "trace_130_conv1.bin",
+      "shape": [
+        2,
+        8,
+        112,
+        112
+      ],
+      "bytes": 200704
+    },
+    {
+      "case_index": 130,
+      "case_id": "Full_Heart_Mesh_369",
+      "layer": "conv2",
+      "file": "trace_130_conv2.bin",
+      "shape": [
+        2,
+        16,
+        56,
+        56
+      ],
+      "bytes": 100352
+    },
+    {
+      "case_index": 130,
+      "case_id": "Full_Heart_Mesh_369",
+      "layer": "conv3",
+      "file": "trace_130_conv3.bin",
+      "shape": [
+        2,
+        24,
+        28,
+        28
+      ],
+      "bytes": 37632
+    },
+    {
+      "case_index": 130,
+      "case_id": "Full_Heart_Mesh_369",
+      "layer": "conv4",
+      "file": "trace_130_conv4.bin",
+      "shape": [
+        2,
+        32,
+        14,
+        14
+      ],
+      "bytes": 12544
+    },
+    {
+      "case_index": 130,
+      "case_id": "Full_Heart_Mesh_369",
+      "layer": "pool",
+      "file": "trace_130_pool.bin",
+      "shape": [
+        2,
+        32,
+        4,
+        4
+      ],
+      "bytes": 1024
+    },
+    {
+      "case_index": 130,
+      "case_id": "Full_Heart_Mesh_369",
+      "layer": "flatten",
+      "file": "trace_130_flatten.bin",
+      "shape": [
+        1,
+        1024
+      ],
+      "bytes": 1024
+    },
+    {
+      "case_index": 130,
+      "case_id": "Full_Heart_Mesh_369",
+      "layer": "fc1",
+      "file": "trace_130_fc1.bin",
+      "shape": [
+        1,
+        128
+      ],
+      "bytes": 128
+    },
+    {
+      "case_index": 130,
+      "case_id": "Full_Heart_Mesh_369",
+      "layer": "fc2",
+      "file": "trace_130_fc2.bin",
+      "shape": [
+        1,
+        16
+      ],
+      "bytes": 16
+    },
+    {
+      "case_index": 73,
+      "case_id": "Full_Heart_Mesh_688",
+      "layer": "conv1",
+      "file": "trace_73_conv1.bin",
+      "shape": [
+        2,
+        8,
+        112,
+        112
+      ],
+      "bytes": 200704
+    },
+    {
+      "case_index": 73,
+      "case_id": "Full_Heart_Mesh_688",
+      "layer": "conv2",
+      "file": "trace_73_conv2.bin",
+      "shape": [
+        2,
+        16,
+        56,
+        56
+      ],
+      "bytes": 100352
+    },
+    {
+      "case_index": 73,
+      "case_id": "Full_Heart_Mesh_688",
+      "layer": "conv3",
+      "file": "trace_73_conv3.bin",
+      "shape": [
+        2,
+        24,
+        28,
+        28
+      ],
+      "bytes": 37632
+    },
+    {
+      "case_index": 73,
+      "case_id": "Full_Heart_Mesh_688",
+      "layer": "conv4",
+      "file": "trace_73_conv4.bin",
+      "shape": [
+        2,
+        32,
+        14,
+        14
+      ],
+      "bytes": 12544
+    },
+    {
+      "case_index": 73,
+      "case_id": "Full_Heart_Mesh_688",
+      "layer": "pool",
+      "file": "trace_73_pool.bin",
+      "shape": [
+        2,
+        32,
+        4,
+        4
+      ],
+      "bytes": 1024
+    },
+    {
+      "case_index": 73,
+      "case_id": "Full_Heart_Mesh_688",
+      "layer": "flatten",
+      "file": "trace_73_flatten.bin",
+      "shape": [
+        1,
+        1024
+      ],
+      "bytes": 1024
+    },
+    {
+      "case_index": 73,
+      "case_id": "Full_Heart_Mesh_688",
+      "layer": "fc1",
+      "file": "trace_73_fc1.bin",
+      "shape": [
+        1,
+        128
+      ],
+      "bytes": 128
+    },
+    {
+      "case_index": 73,
+      "case_id": "Full_Heart_Mesh_688",
+      "layer": "fc2",
+      "file": "trace_73_fc2.bin",
+      "shape": [
+        1,
+        16
+      ],
+      "bytes": 16
+    },
+    {
+      "case_index": 13,
+      "case_id": "Full_Heart_Mesh_887",
+      "layer": "conv1",
+      "file": "trace_13_conv1.bin",
+      "shape": [
+        2,
+        8,
+        112,
+        112
+      ],
+      "bytes": 200704
+    },
+    {
+      "case_index": 13,
+      "case_id": "Full_Heart_Mesh_887",
+      "layer": "conv2",
+      "file": "trace_13_conv2.bin",
+      "shape": [
+        2,
+        16,
+        56,
+        56
+      ],
+      "bytes": 100352
+    },
+    {
+      "case_index": 13,
+      "case_id": "Full_Heart_Mesh_887",
+      "layer": "conv3",
+      "file": "trace_13_conv3.bin",
+      "shape": [
+        2,
+        24,
+        28,
+        28
+      ],
+      "bytes": 37632
+    },
+    {
+      "case_index": 13,
+      "case_id": "Full_Heart_Mesh_887",
+      "layer": "conv4",
+      "file": "trace_13_conv4.bin",
+      "shape": [
+        2,
+        32,
+        14,
+        14
+      ],
+      "bytes": 12544
+    },
+    {
+      "case_index": 13,
+      "case_id": "Full_Heart_Mesh_887",
+      "layer": "pool",
+      "file": "trace_13_pool.bin",
+      "shape": [
+        2,
+        32,
+        4,
+        4
+      ],
+      "bytes": 1024
+    },
+    {
+      "case_index": 13,
+      "case_id": "Full_Heart_Mesh_887",
+      "layer": "flatten",
+      "file": "trace_13_flatten.bin",
+      "shape": [
+        1,
+        1024
+      ],
+      "bytes": 1024
+    },
+    {
+      "case_index": 13,
+      "case_id": "Full_Heart_Mesh_887",
+      "layer": "fc1",
+      "file": "trace_13_fc1.bin",
+      "shape": [
+        1,
+        128
+      ],
+      "bytes": 128
+    },
+    {
+      "case_index": 13,
+      "case_id": "Full_Heart_Mesh_887",
+      "layer": "fc2",
+      "file": "trace_13_fc2.bin",
+      "shape": [
+        1,
+        16
+      ],
+      "bytes": 16
+    }
+  ],
+  "artifact_hashes": {
+    "trace_73_conv2.bin": "18b5c86db6cf10e057af4520a92aa8b66a6893ebbb1a45a5ddfcb9d29a770c29",
+    "trace_73_pool.bin": "a8f1251bed67b2a2431dc8df4d43fcb43de0d1af2f8a3e1357935e338d0b8e6b",
+    "trace_73_conv1.bin": "bf0d74a4c068640be3773334ae114e645eaa15b65859593db5729a0cd53f2aec",
+    "trace_13_conv3.bin": "223ca5408e684631f4a43b4766e6c8ecbcf7e254ae04824c67271331f66456b7",
+    "trace_130_fc1.bin": "ee2c9eedff8a5dd2d23b9b113a0a1bd69cf5136fecab32c7fed09aaf8d40379a",
+    "trace_130_fc2.bin": "4494de25ea8cc7766e212c333219beb24bded5b9b254c330c31736f6fccc1454",
+    "trace_130_pool.bin": "a2a05fa0f0e23bbafdd724706a949b9a6d4b890aa620bc841c54c9c85254e12d",
+    "trace_13_flatten.bin": "c69d27262dd2946a63cbe5cd5861e2d29d1c800dbc70f86d8fd8135840d4152e",
+    "trace_13_pool.bin": "c69d27262dd2946a63cbe5cd5861e2d29d1c800dbc70f86d8fd8135840d4152e",
+    "trace_73_fc2.bin": "afcee88b1b0c99c933532711f3e34387c305477582c75334d566301992fa8e64",
+    "expected.bin": "7f906be33ee6736cdff16a2d211824cfeaf83c946c53f7af103894a7f503d300",
+    "trace_130_flatten.bin": "a2a05fa0f0e23bbafdd724706a949b9a6d4b890aa620bc841c54c9c85254e12d",
+    "trace_73_fc1.bin": "cde8bbb9cb15a6a53013a3aa7ef9b1befd9e328d117ec55d043f05dad08d389a",
+    "shape_weights.hpp": "922afc8e0b72362044946cad8f5885524c23e2b074cb261d29ec28d941b02c43",
+    "trace_130_conv1.bin": "3857d57ef545fc881c241b37f18035ca925d6d2688d4d0f8cc25bef51097594b",
+    "trace_13_conv4.bin": "05fb22071282db2a0d26e8e1b43d0fe2c0a2bdfa070629981c77305303d4cb32",
+    "trace_73_flatten.bin": "a8f1251bed67b2a2431dc8df4d43fcb43de0d1af2f8a3e1357935e338d0b8e6b",
+    "trace_130_conv3.bin": "76fe7f713bcf8029d621e984bd0513b44739b7497863effa0f25d27b8e97800e",
+    "inputs.bin": "27f198bbeeae87acd003b7d555fadfcd40cdf26396618418ba07a3bf0a93fe01",
+    "trace_13_conv2.bin": "6241270f572e270108c112c660ab57cabc2f55a5735e7dbd0a4fce59540f053c",
+    "trace_13_conv1.bin": "f63c44aabbc4e4f6d6b7eab408c8cdfef9c2ac55bb0061ab72ff16062e380a2b",
+    "trace_130_conv2.bin": "4f81fdc07248e3b39e51d9294c0466346c090b88811b4987ad027c1aec838949",
+    "trace_130_conv4.bin": "63dce1f441e558ea46b6b7ed4a4c6cf38b527aede28eb6aa396bbb9d11d67ed0",
+    "representatives.txt": "f1f743cb6789587aa1cb08a316819e9abeb018537c3e963a333d2d2b56c566cf",
+    "trace_13_fc1.bin": "29a29ca03e6c183e993aedc39c12b5ed0f6a5155634de4191a7331a32510c00c",
+    "trace_73_conv4.bin": "f25f794272a6b5561cb07bb41e93cf5fca251fac8e66347fecae440671a68159",
+    "trace_73_conv3.bin": "484fa7217ec68f674fd31f7e30124ce630529af891840e613de27181b28e149d",
+    "trace_13_fc2.bin": "97a0f6954e1eacb9922589a73ff50f62054bb70436185221d826b14bd4a650aa"
+  }
+}

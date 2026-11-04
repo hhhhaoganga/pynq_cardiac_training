@@ -1,0 +1,141 @@
+{
+  "program_beat": 205400,
+  "words": 229672,
+  "instructions": 3034,
+  "checks": [
+    {
+      "block": 0,
+      "addr": 964480,
+      "size": 200704,
+      "label": "t3"
+    },
+    {
+      "block": 1,
+      "addr": 1165184,
+      "size": 50176,
+      "label": "t8"
+    },
+    {
+      "block": 2,
+      "addr": 1215360,
+      "size": 50176,
+      "label": "t12"
+    },
+    {
+      "block": 3,
+      "addr": 1265536,
+      "size": 25088,
+      "label": "t15"
+    },
+    {
+      "block": 4,
+      "addr": 1290624,
+      "size": 25088,
+      "label": "t19"
+    },
+    {
+      "block": 5,
+      "addr": 1315712,
+      "size": 9408,
+      "label": "t22"
+    },
+    {
+      "block": 6,
+      "addr": 1325120,
+      "size": 9408,
+      "label": "t26"
+    },
+    {
+      "block": 7,
+      "addr": 1334528,
+      "size": 9408,
+      "label": "t30"
+    },
+    {
+      "block": 8,
+      "addr": 1343936,
+      "size": 12544,
+      "label": "t33"
+    },
+    {
+      "block": 9,
+      "addr": 1356480,
+      "size": 12544,
+      "label": "t37"
+    },
+    {
+      "block": 10,
+      "addr": 1369024,
+      "size": 12544,
+      "label": "t41"
+    },
+    {
+      "block": 11,
+      "addr": 1381568,
+      "size": 5488,
+      "label": "t44"
+    },
+    {
+      "block": 12,
+      "addr": 1436544,
+      "size": 32928,
+      "label": "t64"
+    },
+    {
+      "block": 13,
+      "addr": 1387072,
+      "size": 5488,
+      "label": "t48"
+    },
+    {
+      "block": 14,
+      "addr": 1469504,
+      "size": 32928,
+      "label": "t65"
+    },
+    {
+      "block": 15,
+      "addr": 1392576,
+      "size": 5488,
+      "label": "t52"
+    },
+    {
+      "block": 16,
+      "addr": 1502464,
+      "size": 32928,
+      "label": "t66"
+    },
+    {
+      "block": 17,
+      "addr": 1398080,
+      "size": 5488,
+      "label": "t56"
+    },
+    {
+      "block": 18,
+      "addr": 1403584,
+      "size": 32928,
+      "label": "t58"
+    }
+  ],
+  "input": {
+    "byte_offset": 763776,
+    "height": 224,
+    "width": 224,
+    "pixel_bytes": 4,
+    "layout": "RGBX unsigned input codes"
+  },
+  "output": {
+    "byte_offset": 1403584,
+    "byte_count": 32928,
+    "height": 7,
+    "width": 7,
+    "padded_channels": 672,
+    "valid_channels": 672,
+    "dtype": "int8 codes"
+  },
+  "original_sha256": "f537bdf279c453f2241c0af512ff6529acd9b1d8308aef9678a97be281d4f167",
+  "schema": 1,
+  "abi": "SVH1",
+  "memory_sha256": "0a13e81d24ef784aa886d785e12eb57b1d9cf8379313b7cf5e1d78f65cb453c3"
+}

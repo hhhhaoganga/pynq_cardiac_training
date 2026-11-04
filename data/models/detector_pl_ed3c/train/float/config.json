@@ -1,0 +1,33 @@
+{
+  "args": {
+    "height": "256",
+    "width": "320",
+    "task": "knot",
+    "stage": "float",
+    "out": "runs_ed3c_dw3/float",
+    "init": "experiments/resolution_20261007/runs/256x320/float/best.pth",
+    "epochs": "12",
+    "batch": "32",
+    "workers": "6",
+    "lr": "0.0001",
+    "transition": "6",
+    "seed": "20261007"
+  },
+  "data": {
+    "split_sha256": "0ec5083393ade32bae567928282e716d82c3e8291572f74c725238cc9e050ba8",
+    "train": 4820,
+    "val": 1469
+  },
+  "torch": "2.11.0+cu128",
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "source_sha256": {
+    "experiments/resolution_20261007/train_resolution_ed3.py": "ab24c536bd3f2a50b11f5783207b9f4382b5b0109aeaf69430dd63cb20c78e5f",
+    "experiments/resolution_20261007/slim.py": "8124dca52aeaed2a13345d17e4e947f074a557748d2b64f4a0e6b04bf9fcd03a",
+    "train.py": "322157d7031b46119031ddbfdf42358586d759203c11d3833bae624b0aa0a2bb",
+    "train_det.py": "8de53565e54b57f49515fccae2d8c0de0c0b4f7ab1b4375bd986d755cba9bc0e",
+    "train_knot.py": "423083e8028c47535516035a3c7810777fa4eacc040feba1263a229285d37721",
+    "dataset.py": "c76dc003c8c2ac7d29c8486a62ccd60b80f84b1a0473634758639fbc9f963d20",
+    "det_data.py": "92ff4b324771946451db95014db1a36e5181c4a542131654747e2a68d8ffbe4d",
+    "knot_data.py": "f09875ec561aaa257f5eb24d5042bd723ad7207f60a77afe581b047561ac0b19"
+  }
+}

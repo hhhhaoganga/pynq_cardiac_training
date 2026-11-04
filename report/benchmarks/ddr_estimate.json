@@ -1,0 +1,17 @@
+{
+ "assumptions": "DDR traffic estimate of the PL segmentation (rm_seg) per frame, from tensor sizes.\n\nNot measured: the static shell has no AXI performance monitor. Weights are in on-chip ROM\n(pl_rom_se_candidate), activations INT8. Lower bound: frame in, mask out, skips + bottleneck\nwritten once and read once, two history bottlenecks read. Upper bound: every layer output\nwritten to DDR and read back once (the workspace has padded / skip / scratch regions).",
+ "fps": 28.68,
+ "seg_bytes_per_frame": {
+  "lower": 1179648,
+  "upper": 6651904
+ },
+ "seg_MBps": {
+  "lower": 33.8,
+  "upper": 190.8
+ },
+ "hdmi_vdma_MBps": 221.2,
+ "hp_port_peak_MBps": {
+  "64bit_at_100MHz": 800,
+  "64bit_at_200MHz": 1600
+ }
+}

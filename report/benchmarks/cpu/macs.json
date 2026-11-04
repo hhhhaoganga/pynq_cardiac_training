@@ -1,0 +1,29 @@
+{
+ "per_layer": {
+  "enc1.0": 2359296,
+  "enc1.3": 9437184,
+  "enc2.0": 4718592,
+  "enc2.3": 9437184,
+  "enc3.0": 4718592,
+  "enc3.3": 9437184,
+  "enc4.0": 4718592,
+  "enc4.3": 9437184,
+  "temporal.0": 3145728,
+  "se.1": 256,
+  "se.3": 256,
+  "dec3.project.0": 2097152,
+  "dec3.refine.0": 18874368,
+  "dec3.refine.3": 9437184,
+  "dec2.project.0": 2097152,
+  "dec2.refine.0": 18874368,
+  "dec2.refine.3": 9437184,
+  "dec1.project.0": 2097152,
+  "dec1.refine.0": 18874368,
+  "dec1.refine.3": 9437184,
+  "head": 1048576
+ },
+ "total_mac_per_frame": 149684736,
+ "params": 32184,
+ "frames": 22,
+ "source": "/home/lizx/fpga_medseg/data/processed/camus_stream_s_256/patient0200_4CH_image.npy"
+}

@@ -1,0 +1,41 @@
+
+****** xsim v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Wed Nov  4 04:36:25 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/knotaxi_snap/xsim_script.tcl
+# xsim {knotaxi_snap} -testplusarg PROGRAM=215104 -testplusarg STALL=1 -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+AXI_BLOCK_PASS 0 cycles=1227654
+AXI_BLOCK_PASS 1 cycles=1833965
+AXI_BLOCK_PASS 2 cycles=2093091
+AXI_BLOCK_PASS 3 cycles=2249597
+AXI_BLOCK_PASS 4 cycles=2419654
+AXI_BLOCK_PASS 5 cycles=2523105
+AXI_BLOCK_PASS 6 cycles=2628607
+AXI_BLOCK_PASS 7 cycles=2734172
+AXI_BLOCK_PASS 8 cycles=2850045
+AXI_BLOCK_PASS 9 cycles=3021376
+AXI_BLOCK_PASS 10 cycles=3192635
+AXI_BLOCK_PASS 11 cycles=3308430
+AXI_BLOCK_PASS 12 cycles=3437477
+AXI_BLOCK_PASS 13 cycles=3566486
+AXI_BLOCK_PASS 14 cycles=3695502
+AXI_BLOCK_PASS 15 cycles=3709560
+AXI_BLOCK_PASS 16 cycles=3739719
+AXI_BLOCK_PASS 17 cycles=3765694
+AXI_BLOCK_PASS 18 cycles=3829002
+AXI_BLOCK_PASS 19 cycles=3922175
+AXI_BLOCK_PASS 20 cycles=4015557
+AXI_BLOCK_PASS 21 cycles=4085710
+SV_KNOT_AXI_PASS blocks=22 cycles=4085727 read_bursts=9233 write_bursts=2227 stall=1
+$finish called at time : 40858020 ns : File "/home/lizx/simrun_20261104/sv_knot/tb/tb_axi.sv" Line 153
+run: Time (s): cpu = 00:00:00.23 ; elapsed = 00:01:50 . Memory (MB): peak = 1393.734 ; gain = 0.000 ; free physical = 50189 ; free virtual = 938467
+exit
+INFO: xsimkernel Simulation Memory Usage: 274580 KB (Peak: 327752 KB), Simulation CPU Usage: 110970 ms
+INFO: [Common 17-206] Exiting xsim at Wed Nov  4 04:38:17 2026...

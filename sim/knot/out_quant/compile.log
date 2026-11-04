@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/lizx/simrun_20261104/sv_knot/knot_quant8.sv" into library work
+INFO: [VRFC 10-311] analyzing module knot_quant8
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/lizx/simrun_20261104/sv_knot/tb/tb_quant.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_quant

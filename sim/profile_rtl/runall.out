@@ -1,0 +1,85 @@
+ELAB_FAIL camus_stream_axi_ctrl_tb
+ELAB_FAIL camus_datamover_strip_executor_tb
+ELAB_FAIL camus_stream_pipeline_core_tb
+ELAB_FAIL camus_w4a8_strip_layer_tb
+SIM_EXIT=0 TB=camus_concat_job_rom_tb
+Fatal: stage0
+SIM_EXIT=0 TB=camus_feature_repacker_tb
+CAMUS feature repacker PASS
+SIM_EXIT=0 TB=camus_layer_ctrl_tb
+CAMUS layer controller PASS cycles=13
+SIM_EXIT=0 TB=camus_tile_pingpong_tb
+CAMUS tile ping-pong PASS bank_ready=10
+SIM_EXIT=0 TB=camus_axi_stream_tile_bridge_tb
+CAMUS AXI-stream tile bridge PASS beats=8
+SIM_EXIT=0 TB=camus_frame_pipeline_controller_tb
+SIM_EXIT=0 TB=camus_output_axis_packer_pad_tb
+PASS camus_frame_pipeline frames=6 cycles=157 overlap=70
+PASS camus_output_axis_packer_pad real=9 physical=18
+SIM_EXIT=0 TB=camus_conv_requant_relu_tb
+CAMUS RTL conv test PASS outputs=2,0
+SIM_EXIT=0 TB=camus_strip_descriptor_tb
+PASS camus_strip_descriptor 3x3_tiles=19 pointwise_tiles=4
+SIM_EXIT=0 TB=camus_layer_job_rom_tb
+PASS camus_layer_job_rom jobs=19 decoder=11
+SIM_EXIT=0 TB=camus_axi_ctrl_tb
+CAMUS AXI control PASS status=00000003
+SIM_EXIT=0 TB=camus_frame_op_rom_tb
+PASS camus_frame_op_rom ops=29 conv=19 aux=10
+SIM_EXIT=0 TB=camus_rescale_group_axis_tb
+PASS camus_rescale_group_axis groups=32 cycles=41
+SIM_EXIT=0 TB=camus_output_axis_packer_tb
+PASS camus_output_axis_packer groups=101 beats=26 cycles=134
+SIM_EXIT=0 TB=camus_phase_scheduler_tb
+PASS camus_phase_scheduler encoder_ops=11 decoder_ops=18
+SIM_EXIT=0 TB=camus_compact_input_datamover_executor_tb
+PASS camus_compact_input pixels=31 cycles=45 stalls=13/3
+SIM_EXIT=0 TB=camus_conv3x3_pe2_stream_tb
+CAMUS 3x3 PE2 scheduler smoke PASS outputs=48
+SIM_EXIT=0 TB=camus_concat_rescale_axis_tb
+PASS camus_concat_rescale_axis dense_4_plus_4
+SIM_EXIT=0 TB=camus_feature_tile_cache_tb
+PASS camus_feature_tile_cache tiles=1000 words=32000
+SIM_EXIT=0 TB=camus_argmax_datamover_executor_tb
+PASS camus_argmax_datamover_executor pixels=15 cycles=27
+SIM_EXIT=0 TB=camus_history_datamover_bridge_tb
+PASS camus_history_datamover_bridge frames=3 strips=4 history_count=2 cycles=290
+SIM_EXIT=0 TB=camus_unet_pl_top_tb
+CAMUS full topology smoke PASS
+SIM_EXIT=0 TB=camus_pool_datamover_executor_tb
+PASS camus_pool_datamover_executor words=4 cycles=28 input_stall=7 output_stall=0
+SIM_EXIT=0 TB=camus_w4a8_layer_engine_tb
+FAIL layer-engine vector files could not be opened
+SIM_EXIT=0 TB=camus_stream_ops_tb
+Fatal: argmax missing output 0
+SIM_EXIT=0 TB=camus_w4a8_mvu_tb
+FAIL vector files could not be opened
+SIM_EXIT=0 TB=camus_nearest_concat_datamover_executor_tb
+PASS concat case=2 channels=16+16 words=16384 cycles=28717 no_stall=26670
+PASS concat case=1 channels=8+8 words=32768 cycles=57434 no_stall=53340
+PASS concat case=0 channels=4+4 words=65536 cycles=156002 no_stall=147824
+PASS camus_nearest_concat_datamover_executor all channel configurations
+SIM_EXIT=0 TB=camus_lcc_full_frame_tb
+Fatal: missing LCC golden file plusargs
+SIM_EXIT=0 TB=camus_lcc_datamover_executor_tb
+PASS camus_lcc_datamover pixels=48 labels=6 cycles=449
+SIM_EXIT=0 TB=camus_window_layer_tb
+FAIL vector files could not be opened
+SIM_EXIT=0 TB=camus_conv3x3_pe2_layer_tb
+CAMUS shared PE2 layer2 scheduler smoke PASS groups=72 pixels=9
+SIM_EXIT=0 TB=camus_pad2_stream_tb
+CAMUS same-padding PE2 smoke PASS outputs=48 pixels=6
+SIM_EXIT=0 TB=camus_enc12_chain_tb
+CAMUS real enc1->enc1 layer2 chain PASS outputs=8
+SIM_EXIT=0 TB=camus_enc12_same_chain_tb
+CAMUS enc12 same-padding chain PASS outputs=160 pixels=20
+SIM_EXIT=0 TB=camus_enc12_pool_chain_tb
+CAMUS enc12+pool chain PASS outputs=16
+SIM_EXIT=0 TB=camus_enc12_pool_tile_tb
+CAMUS enc12 pool tile cache PASS reads=16 checksum=246da0e2
+SIM_EXIT=0 TB=camus_enc3_stage_tb
+CAMUS enc3 16->32 stage PASS outputs=256 pixels=16
+SIM_EXIT=0 TB=camus_pad2_stream_real_tb
+CAMUS real 256x256 first-layer golden PASS beats=524288 pixels=65536
+SIM_EXIT=0 TB=camus_pad2_stream_256_tb
+CAMUS 256x256 same-padding PE2 PASS outputs=524288 pixels=65536 checksum=02479ed3

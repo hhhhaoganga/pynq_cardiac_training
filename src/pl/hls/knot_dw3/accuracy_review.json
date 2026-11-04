@@ -1,0 +1,52 @@
+{
+  "qat": {
+    "best_epoch": 10,
+    "metrics": {
+      "mAP50": 0.9647650282466183,
+      "mAP50_95": 0.6698650090656137,
+      "AP50_single": 0.9934993089441958,
+      "AP50_square": 0.9608543879110616,
+      "AP50_triple": 0.9399413878845976
+    },
+    "checkpoint_sha256": "a14ebd458c2552ddce2a85fa9dc271e2f01c401517278259278dc7d43e8df930",
+    "stage": "qat",
+    "note": "Validation set used for checkpoint selection; not independent test performance."
+  },
+  "accepted_float": {
+    "mAP50": 0.9822065110369667,
+    "mAP50_95": 0.6966088057584202,
+    "AP50_single": 0.9971446244293796,
+    "AP50_square": 0.9853419441607407,
+    "AP50_triple": 0.9641329645207797
+  },
+  "full_resolution_qat": {
+    "mAP50": 0.9868477765803747,
+    "mAP50_95": 0.7305095180520174,
+    "AP50_single": 0.9892991536290093,
+    "AP50_square": 0.9941890458909051,
+    "AP50_triple": 0.9770551302212099
+  },
+  "additional_quantization_drops": {
+    "mAP50": 0.017441482790348406,
+    "mAP50_95": 0.026743796692806465,
+    "AP50_single": 0.0036453154851837644,
+    "AP50_square": 0.024487556249679132,
+    "AP50_triple": 0.0241915766361821
+  },
+  "drops_vs_full_resolution_qat": {
+    "mAP50": 0.022082748333756452,
+    "mAP50_95": 0.06064450898640361,
+    "AP50_single": -0.004200155315186471,
+    "AP50_square": 0.033334657979843474,
+    "AP50_triple": 0.037113742336612354
+  },
+  "additional_quantization_limits": {
+    "mAP50": 0.01,
+    "mAP50_95": 0.03,
+    "AP50_single": 0.02,
+    "AP50_square": 0.02,
+    "AP50_triple": 0.02
+  },
+  "float_resolution_tradeoff_accepted": true,
+  "additional_quantization_gate": false
+}

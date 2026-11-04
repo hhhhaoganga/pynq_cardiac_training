@@ -1,0 +1,22 @@
+Vivado Simulator v2024.2.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/lizx/Xilinx/Vivado/2024.2/bin/unwrapped/lnx64.o/xelab tb_knot -s knot_snap --debug typical --mt 8 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.knot_ram_default
+Compiling module work.knot_weight_bank_default
+Compiling module work.knot_ram(DEPTH=256)
+Compiling module work.knot_ram(DEPTH=1024)
+Compiling module work.knot_ram(W=384)
+Compiling module work.knot_pw_array
+Compiling module work.knot_dw_array
+Compiling module work.knot_quant8
+Compiling module work.knot_core_default
+Compiling module work.tb_knot
+Built simulation snapshot knot_snap

@@ -1,0 +1,21 @@
+
+****** xsim v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Wed Nov  4 05:38:25 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/snap/xsim_script.tcl
+# xsim {snap} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+WARNING: File weights_pe4s8.mem referenced on /home/lizx/simrun_20261104/profile_rtl/camus_w4a8_layer_engine.sv at line 110 cannot be opened for reading. Please ensure that this file is available in the current working directory or parent directory of xsim.dir location specified via -xsimdir switch.
+WARNING: File bias_pe4.mem referenced on /home/lizx/simrun_20261104/profile_rtl/camus_w4a8_layer_engine.sv at line 110 cannot be opened for reading. Please ensure that this file is available in the current working directory or parent directory of xsim.dir location specified via -xsimdir switch.
+WARNING: File multiplier_pe4.mem referenced on /home/lizx/simrun_20261104/profile_rtl/camus_w4a8_layer_engine.sv at line 110 cannot be opened for reading. Please ensure that this file is available in the current working directory or parent directory of xsim.dir location specified via -xsimdir switch.
+WARNING: File shift_pe4.mem referenced on /home/lizx/simrun_20261104/profile_rtl/camus_w4a8_layer_engine.sv at line 110 cannot be opened for reading. Please ensure that this file is available in the current working directory or parent directory of xsim.dir location specified via -xsimdir switch.
+PASS camus_datamover_strip_executor jobs=2 strips/job=3 beats=72 cycles=196 load_wait=46 compute=132 output_wait=9 stalls=3 overlap=1
+$finish called at time : 4010 ns : File "/home/lizx/simrun_20261104/profile_rtl/camus_datamover_strip_executor_tb.sv" Line 221
+exit
+INFO: [Common 17-206] Exiting xsim at Wed Nov  4 05:38:28 2026...

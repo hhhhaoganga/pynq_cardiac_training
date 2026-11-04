@@ -1,0 +1,174 @@
+--- src_orig/ui.cpp	2026-10-29 14:41:56.654026100 +0800
++++ src/ui.cpp	2026-10-29 14:44:40.852412800 +0800
+@@ -583,9 +583,6 @@
+         font_->draw_center(c, 560, H - 9, toast_, 14, toast_color_);
+     else if (!s_.error.empty() && !s_.swapping)
+         font_->draw(c, 16, H - 9, TR("⚠ ") + s_.error, 13, BAD);
+-    else
+-        font_->draw(c, 16, H - 9, TR("科研演示，非临床诊断用途  ·  分割 SE U-Net W4A8 (CAMUS)  ·  形状 E-PiVox K16 W8A8"), 13,
+-                    DIM);
+     const int pin = st_.demo_pin.load();
+     const bool demo_on = st_.demo_enabled.load();
+     const char *seg_src = solo_ ? TR("A4C 长序列") : TR("双切面");
+@@ -651,23 +648,7 @@
+             c.disc(TAB_X[i] + TAB_W[i] - 12, 28, 3, WARN);
+     }
+ 
+-    // PL status pill.
+-    const bool ok = s_.mode != Mode::None && !s_.swapping;
+-    c.round_rect(812, 11, 284, 34, 4, EDGE);
+-    c.round_rect(813, 12, 282, 32, 3, WELL);
+-    c.disc(830, 28, 5, s_.swapping ? WARN : ok ? OK : BAD);
+-    const std::string pl = s_.swapping ? std::string(TR("PL 重配置中…"))
+-                           : s_.mode == Mode::Seg   ? std::string(TR("PL：分割模块 rm_seg"))
+-                           : s_.mode == Mode::Shape ? std::string(TR("PL：形状模块 rm_shape"))
+-                           : s_.mode == Mode::Hand ? std::string(TR("PL：双手 ROI SV"))
+-                           : s_.mode == Mode::Knot  ? std::string(TR("PL：结型 SV DW3/E3"))
+-                                                    : std::string(TR("PL：未就绪"));
+-    font_->draw(c, 844, 27, pl, 14, TEXT);
+-    font_->draw(c, 844, 42, fmt(TR("切换 %u 次 · 上次 %.0f ms · FCLK %.0f MHz"), s_.swaps, s_.last_swap_ms, s_.fclk[0]),
+-                11, MUTED);
+-    button(c, Btn::Lang, 1106, 14, 64, 28, ui_english.load() ? "中文" : "English", false, true, 13);
+-    font_->draw_right(c, W - 16, 27, clock_text(), 16, TEXT);
+-    font_->draw_right(c, W - 16, 45, s_.client ? TR("已连接") : TR("未连接"), 12, s_.client ? OK : DIM);
++    button(c, Btn::Lang, W - 80, 14, 64, 28, ui_english.load() ? "中文" : "English", false, true, 13);
+ }
+ 
+ // ---- segmentation screen -----------------------------------------------------
+@@ -1032,7 +1013,7 @@
+                       : host ? TR("上位机输入：显示上位机发送的帧，不随心电")
+                       : !ecg_gated(hw::now_us()) ? TR("等待 R 波…")
+                       : on ? TR("每次 R 波回放一次 ED → ES → ED；红 舒张 / 蓝 收缩")
+-                           : TR("序列分割完一遍后，即按心电回放分割结果");
++                           : "";
+     font_->draw(c, x + 16, y + h - 14, msg, 11, on ? MUTED : DIM);
+ }
+ 
+@@ -1048,7 +1029,7 @@
+     (void)now;
+     card(c, 12, 66, 700, 622,
+          biplane_ ? TR("三维形状重建  ·  双平面几何法 (A2C + A4C 圆盘叠加)")
+-                  : TR("三维形状重建  ·  外包络 SDF-PCA (K = 16)"));
++                  : TR("三维形状重建"));
+     draw_mesh_view(c);
+     if (biplane_) draw_beat_side(c);
+     else draw_shape_side(c);
+@@ -1233,9 +1214,6 @@
+         }
+         if (cursor_ && mesh_.ready())
+             font_->draw_right(c, vx + vw - 12, vy + 24, dragging_ ? TR("旋转中") : TR("左键拖动旋转 · 右键复位"), 12, DIM);
+-        int ly2 = vy + vh - 12;
+-        for (auto it = s_.events.rbegin(); it != s_.events.rend() && ly2 > vy + vh - 100; ++it, ly2 -= 19)
+-            font_->draw_right(c, vx + vw - 12, ly2, tr_line(*it), 11, it == s_.events.rbegin() ? TEXT : DIM);
+         return;
+     }
+     if (!model_) font_->draw_center(c, vx + vw / 2, vy + vh / 2, TR("未找到形状模型 data/shape_model.bin"), 16, WARN);
+@@ -1267,8 +1245,7 @@
+                 font_->draw(c, vx + 14, vy + 70, TR("模拟节律 60 次/分 (心电未连接)"), 12, DIM);
+             font_->draw(c, vx + 14, vy + 90, TR("收缩运动为通用生理模型 (由形状系数预测)，非该病例实测"), 11, DIM);
+         } else {
+-            font_->draw(c, vx + 14, vy + 50, fmt(TR("外包络体积 %.0f mL  ·  %zu 三角面"), s.volume_ml,
+-                                                 s.mesh.faces.size() / 3), 13, MUTED);
++            font_->draw(c, vx + 14, vy + 50, fmt(TR("外包络体积 %.0f mL"), s.volume_ml), 13, MUTED);
+         }
+     } else {
+         font_->draw(c, vx + 14, vy + 28, TR("平均形状 (等待重建病例)"), 15, MUTED);
+@@ -1281,10 +1258,6 @@
+         c.rect(bx + i, by, 1, 10, gfx::mix(n, t < 0 ? in : out, unsigned(std::fabs(t) * 255)));
+     }
+     font_->draw(c, bx, by + 26, TR("−6 mm  较平均形状内缩 / 外扩  +6 mm"), 11, MUTED);
+-    // Recent events, bottom right of the viewport.
+-    int ly = vy + vh - 12;
+-    for (auto it = s_.events.rbegin(); it != s_.events.rend() && ly > vy + vh - 100; ++it, ly -= 19)
+-        font_->draw_right(c, vx + vw - 12, ly, tr_line(*it), 11, it == s_.events.rbegin() ? TEXT : DIM);
+ }
+ 
+ // Volume over the reconstructed phases, with the playback marker.
+@@ -1326,10 +1299,6 @@
+     card(c, x, 66, w, 96, TR("数据来源"));
+     button(c, Btn::SrcBiplane, x + 22, 98, 234, 34, TR("CAMUS 双平面 (刚分割的序列)"), biplane_, !s_.swapping, 14);
+     button(c, Btn::SrcPivox, x + 276, 98, 234, 34, TR("E-PiVox K16 (PL 推理)"), !biplane_, !s_.swapping, 14);
+-    font_->draw(c, x + 22, 152,
+-                biplane_ ? TR("PS 由分割掩膜几何重建，PL 保持 rm_seg，分割与三维同时进行")
+-                         : TR("PL 加载 rm_shape，由两视角轮廓推理 16 个形状系数"),
+-                12, MUTED);
+ }
+ 
+ void Ui::draw_beat_side(gfx::Canvas &c) {
+@@ -1409,7 +1378,6 @@
+     } else if (e.bpm > 0) {
+         bold_->draw(c, px + 36, py + 68, fmt("%.0f", e.bpm), 30, IMG_TEXT);
+         font_->draw(c, px + 100, py + 68, TR("次/分"), 13, IMG_DIM);
+-        font_->draw(c, px, py + 88, fmt(TR("已检测 %llu 次心跳"), (unsigned long long)e.beats), 11, IMG_DIM);
+     } else {
+         bold_->draw(c, px + 36, py + 68, "--", 30, IMG_DIM);
+         font_->draw(c, px, py + 88, TR("正在识别 R 波…"), 11, IMG_DIM);
+@@ -1454,7 +1422,7 @@
+         font_->draw(c, tx + ts + 10, ty + ts - 4, v ? TR("视角 6") : TR("视角 8"), 12, MUTED);
+     }
+ 
+-    card(c, x, 358, w, 150, TR("形状系数  (PL 输出 INT8 → 归一化 PCA 系数)"));
++    card(c, x, 358, w, 150, TR("形状系数"));
+     const int gx = x + 22, gy = 392, gh = 84, bar = 24, gap = 8;
+     c.rect(gx, gy + gh / 2, 16 * (bar + gap) - gap, 1, EDGE);
+     float peak = 1.f;
+@@ -1487,10 +1455,6 @@
+     kv(1, 618, TR("INT8 系数校验"), check, !v || !s.has_expected ? TEXT : s.mismatches ? BAD : OK);
+     if (v && s.phases)
+         kv(0, 646, TR("PS 收缩相位网格"), fmt(TR("%zu 个 · %.0f ms"), s.phases->size() - 1, s.motion_ms));
+-    if (s.checked)
+-        font_->draw(c, x + 22, 668, fmt(TR("累计校验 %llu 例，系数不一致 %llu 个 (PL 与软件整数参考逐位比对)"),
+-                                        (unsigned long long)s.checked, (unsigned long long)s.total_mismatch),
+-                    12, s.total_mismatch ? BAD : DIM);
+ }
+ 
+ // Swap status in the top bar (over the title). It never covers the content, so
+@@ -1620,13 +1584,6 @@
+             kv(y + 250,TR("PL 核耗时"),fmt("%.2f ms",det_r_.ms_pl));
+         }
+     }
+-    c.rect(x + 20, y + 290, w - 40, 1, EDGE);
+-    const bool pl_knot = det_->knot_pl() && m == DetMode::Knot;
+-    const bool pl_hand=det_->hand_pl() && m==DetMode::Hand;
+-    font_->draw(c, x + 20, y + 314, pl_knot ? TR("结型：PL 检测 + PS 裁剪分类 · W4A8") : pl_hand ? TR("双手：PL 加速 · 原模型 · 双 ROI 跟踪") : TR("当前识别在 PS 上执行整数推理"), 12, DIM);
+-    font_->draw(c, x + 20, y + 334, pl_knot ? TR("摄像头画面叠加检测框、类别和置信度") : pl_hand ? TR("跟踪丢失时重检；采集帧率不等于推理帧率") : TR("摄像头采集与识别结果分别更新"), 12, DIM);
+-    font_->draw(c, x + 20, y + 354,
+-                det_r_.version ? fmt(TR("已推理 %llu 帧"), (unsigned long long)det_r_.version) : std::string(" "), 12, DIM);
+ }
+ 
+ // ---- knot-tying training (page 4) ----------------------------------------------
+@@ -1713,10 +1670,7 @@
+         font_->draw(c, x + 20, ry, t.pending() ? TR("已拉线，正在判别正/反…") : TR("第 1 个结进行中…"), 12, WARN);
+     else if (ph == P::Idle && !t.report())
+         font_->draw(c, x + 20, ry, TR("还没有打结记录"), 12, DIM);
+-    font_->draw(c, x + 20, y + 374, TR("手部：PL 双 ROI 跟踪 · 正/反结：时序网络 (PS)"), 11, DIM);
+-    font_->draw(c, x + 20, y + 394,
+-                t.net().ok() ? std::string(TR("时序网络已加载 · 自检通过")) : std::string(TR("时序网络未加载：")) + t.net().error(),
+-                11, t.net().ok() ? DIM : BAD);
++    if (!t.net().ok()) font_->draw(c, x + 20, y + 394, std::string(TR("时序网络未加载：")) + t.net().error(), 11, BAD);
+ }
+ void Ui::draw_train_ecg(gfx::Canvas &c) {
+     const int x = 12, y = 488, w = 836, h = 200;
+@@ -1804,7 +1758,6 @@
+                                "4. 取时间最长、置信度最高的结型，生成报告",
+                                "5. 自动切回手部识别；报告保留到下一次识别结束"};
+         for (int i = 0; i < 5; i++) font_->draw(c, x + 20, y + 96 + i * 26, TR(steps[i]), 12, TEXT);
+-        font_->draw(c, x + 20, y + 260, TR("心电接上后，记录每次拉线时的心动相位"), 12, DIM);
+         return;
+     }
+     auto kv = [&](int ky, const std::string &k, const std::string &val, uint32_t col = TEXT) {
+@@ -1917,14 +1870,6 @@
+     kv(y + 122, TR("采集帧率"), on ? fmt(TR("%.1f 帧/秒"), s.fps) : std::string(TR("—")));
+     kv(y + 148, TR("PS 解码 (libjpeg-turbo)"), on && s.decode_ms > 0 ? fmt(TR("%.1f ms/帧"), s.decode_ms) : std::string(TR("—")));
+     kv(y + 174, TR("已显示 / 解码失败"), fmt("%llu / %llu", (unsigned long long)s.frames, (unsigned long long)s.bad));
+-    c.rect(x + 20, y + 192, w - 40, 1, EDGE);
+-    font_->draw(c, x + 20, y + 216,
+-                s_.mode == Mode::Seg     ? TR("PL 当前：分割模块（本页暂不使用 PL）")
+-                : s_.mode == Mode::Shape ? TR("PL 当前：形状模块（本页暂不使用 PL）")
+-                : s_.mode == Mode::Hand ? TR("PL 当前：双手 ROI SV")
+-                : s_.mode == Mode::Knot ? TR("PL 当前：结型检测 SV DW3/E3")
+-                                         : TR("PL 当前：未就绪"),
+-                12, DIM);
+ }
+ 
+ bool Ui::write_png(const gfx::Canvas &c, const std::string &path) {

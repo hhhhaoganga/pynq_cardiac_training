@@ -1,0 +1,2 @@
+patient0200_2CH_half_sequence_image.npy 2 10001 709844 585922
+patient0200_4CH_half_sequence_image.npy 4 10001 709844 585922

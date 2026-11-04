@@ -1,0 +1,163 @@
+
+
+================================================================
+== Vitis HLS Report for 'cnn_top_Pipeline_VITIS_LOOP_509_2'
+================================================================
+* Date:           Wed Oct  7 11:41:37 2026
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        hls_project
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  5.728 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval |                    Pipeline                    |
+    |   min   |   max   |    min    |    max   | min | max |                      Type                      |
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |        2|      418|  20.000 ns|  4.180 us|    1|  417|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+---------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  |   Trip  |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  |  Count  | Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+---------+----------+
+        |- VITIS_LOOP_509_2  |        0|      416|         2|          1|          1|  0 ~ 416|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+---------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|     79|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|       -|      -|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       0|     36|    -|
+|Register         |        -|    -|      43|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|      43|    115|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+----+---+----+------------+------------+
+    |add_ln509_fu_170_p2   |         +|   0|  0|  38|          31|           1|
+    |icmp_ln509_fu_164_p2  |      icmp|   0|  0|  39|          32|          32|
+    |ap_enable_pp0         |       xor|   0|  0|   2|           1|           2|
+    +----------------------+----------+----+---+----+------------+------------+
+    |Total                 |          |   0|  0|  79|          64|          35|
+    +----------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_j_7     |   9|          2|   31|         62|
+    |j_fu_52                  |   9|          2|   31|         62|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  36|          8|   64|        128|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------+----+----+-----+-----------+
+    |           Name          | FF | LUT| Bits| Const Bits|
+    +-------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                |   1|   0|    1|          0|
+    |ap_done_reg              |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1  |   1|   0|    1|          0|
+    |j_fu_52                  |  31|   0|   31|          0|
+    |lshr_ln2_reg_222         |   8|   0|    8|          0|
+    |trunc_ln509_reg_218      |   1|   0|    1|          0|
+    +-------------------------+----+----+-----+-----------+
+    |Total                    |  43|   0|   43|          0|
+    +-------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------------------------------------+-----+-----+------------+-----------------------------------------+--------------+
+|                     RTL Ports                    | Dir | Bits|  Protocol  |              Source Object              |    C Type    |
++--------------------------------------------------+-----+-----+------------+-----------------------------------------+--------------+
+|ap_clk                                            |   in|    1|  ap_ctrl_hs|        cnn_top_Pipeline_VITIS_LOOP_509_2|  return value|
+|ap_rst                                            |   in|    1|  ap_ctrl_hs|        cnn_top_Pipeline_VITIS_LOOP_509_2|  return value|
+|ap_start                                          |   in|    1|  ap_ctrl_hs|        cnn_top_Pipeline_VITIS_LOOP_509_2|  return value|
+|ap_done                                           |  out|    1|  ap_ctrl_hs|        cnn_top_Pipeline_VITIS_LOOP_509_2|  return value|
+|ap_idle                                           |  out|    1|  ap_ctrl_hs|        cnn_top_Pipeline_VITIS_LOOP_509_2|  return value|
+|ap_ready                                          |  out|    1|  ap_ctrl_hs|        cnn_top_Pipeline_VITIS_LOOP_509_2|  return value|
+|d_6_reload                                        |   in|   32|     ap_none|                               d_6_reload|        scalar|
+|r                                                 |   in|    2|     ap_none|                                        r|        scalar|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_0_0_address0  |  out|    8|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_0_0|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_0_0_ce0       |  out|    1|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_0_0|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_0_0_we0       |  out|    1|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_0_0|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_0_0_d0        |  out|   32|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_0_0|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_0_1_address0  |  out|    8|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_0_1|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_0_1_ce0       |  out|    1|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_0_1|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_0_1_we0       |  out|    1|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_0_1|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_0_1_d0        |  out|   32|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_0_1|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_1_0_address0  |  out|    8|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_1_0|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_1_0_ce0       |  out|    1|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_1_0|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_1_0_we0       |  out|    1|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_1_0|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_1_0_d0        |  out|   32|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_1_0|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_1_1_address0  |  out|    8|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_1_1|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_1_1_ce0       |  out|    1|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_1_1|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_1_1_we0       |  out|    1|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_1_1|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_1_1_d0        |  out|   32|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_1_1|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_2_0_address0  |  out|    8|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_2_0|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_2_0_ce0       |  out|    1|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_2_0|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_2_0_we0       |  out|    1|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_2_0|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_2_0_d0        |  out|   32|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_2_0|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_2_1_address0  |  out|    8|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_2_1|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_2_1_ce0       |  out|    1|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_2_1|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_2_1_we0       |  out|    1|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_2_1|         array|
+|p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_2_1_d0        |  out|   32|   ap_memory|  p_ZZ7cnn_topP7ap_uintILi64EEiiE3img_2_1|         array|
++--------------------------------------------------+-----+-----+------------+-----------------------------------------+--------------+
+

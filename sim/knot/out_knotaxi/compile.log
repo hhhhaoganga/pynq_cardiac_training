@@ -1,0 +1,18 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/lizx/simrun_20261104/sv_knot/knot_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module knot_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/lizx/simrun_20261104/sv_knot/knot_dma.sv" into library work
+INFO: [VRFC 10-311] analyzing module knot_dma
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/lizx/simrun_20261104/sv_knot/knot_dw_array.sv" into library work
+INFO: [VRFC 10-311] analyzing module knot_dw_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/lizx/simrun_20261104/sv_knot/knot_pw_array.sv" into library work
+INFO: [VRFC 10-311] analyzing module knot_pw_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/lizx/simrun_20261104/sv_knot/knot_quant8.sv" into library work
+INFO: [VRFC 10-311] analyzing module knot_quant8
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/lizx/simrun_20261104/sv_knot/knot_ram.sv" into library work
+INFO: [VRFC 10-311] analyzing module knot_ram
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/lizx/simrun_20261104/sv_knot/knot_weight_bank.sv" into library work
+INFO: [VRFC 10-311] analyzing module knot_weight_bank
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/lizx/simrun_20261104/sv_knot/rm_cnn_top.sv" into library work
+INFO: [VRFC 10-311] analyzing module rm_cnn_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/lizx/simrun_20261104/sv_knot/tb/tb_axi.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_axi

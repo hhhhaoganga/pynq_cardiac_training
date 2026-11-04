@@ -1,0 +1,19 @@
+Vivado Simulator v2024.2.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/lizx/Xilinx/Vivado/2024.2/bin/unwrapped/lnx64.o/xelab camus_unet_pl_top_tb -s snap --debug typical 
+Multi-threading is on. Using 254 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.camus_conv_requant_relu(PE=2)
+Compiling module work.camus_pool2x2_stream(WIDTH=16,CH...
+Compiling module work.camus_pool2x2_stream(WIDTH=8,CHA...
+Compiling module work.camus_nearest1x1_stream(CHANNELS...
+Compiling module work.camus_concat_stream(A_CHANNELS=2...
+Compiling module work.camus_unet_pl_top(FRAME_TOKENS=1...
+Compiling module work.camus_unet_pl_top_tb
+Built simulation snapshot snap

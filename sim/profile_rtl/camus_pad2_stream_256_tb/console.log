@@ -1,0 +1,19 @@
+
+****** xsim v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Wed Nov  4 05:38:28 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/snap/xsim_script.tcl
+# xsim {snap} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+CAMUS 256x256 same-padding PE2 PASS outputs=524288 pixels=65536 checksum=02479ed3
+$finish called at time : 88832375 ns : File "/home/lizx/simrun_20261104/profile_rtl/camus_pad2_stream_256_tb.sv" Line 148
+run: Time (s): cpu = 00:00:00.52 ; elapsed = 00:04:49 . Memory (MB): peak = 1393.738 ; gain = 0.000 ; free physical = 45178 ; free virtual = 940863
+exit
+INFO: xsimkernel Simulation Memory Usage: 264924 KB (Peak: 318096 KB), Simulation CPU Usage: 290190 ms
+INFO: [Common 17-206] Exiting xsim at Wed Nov  4 05:43:20 2026...

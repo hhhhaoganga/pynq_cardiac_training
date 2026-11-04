@@ -1,0 +1,41 @@
+Diagnostic-only rejected prototype: OpenCV 5 accurate mode does not use the old 5-bit coordinate table. Not compiled or deployed.
+void crop_rgbx(const uint32_t* px,int width,int height,size_t stride,Roi roi,uint8_t* dst) {
+    if(!px||!dst||width<=0||height<=0||stride<size_t(width)||
+       !std::isfinite(roi.cx)||!std::isfinite(roi.cy)||!std::isfinite(roi.side)||
+       roi.side<1||roi.side>8192||std::abs(roi.cx)>8192||std::abs(roi.cy)>8192)
+        throw std::invalid_argument("Invalid hand ROI");
+    // The reference constructs a float32 forward matrix, then warpAffine
+    // inverts it in double precision and uses 10-bit affine/5-bit interpolation.
+    const double scale=224.0/roi.side;
+    const double a=static_cast<float>(scale);
+    const double tx=static_cast<float>(112.0-scale*roi.cx);
+    const double ty=static_cast<float>(112.0-scale*roi.cy);
+    const double invdet=1.0/(a*a),inv=a*invdet;
+    const double bx=-inv*tx,by=-inv*ty;
+    std::array<int,224> sx{},fx{},sy{},fy{};
+    const int base_x=int(std::lrint(bx*1024))+16;
+    for(int x=0;x<224;x++) {
+        const int fixed=floor_div(base_x+int(std::lrint(inv*x*1024)),32);
+        sx[x]=floor_div(fixed,32);fx[x]=fixed-sx[x]*32;
+    }
+    for(int y=0;y<224;y++) {
+        const int fixed=floor_div(int(std::lrint((inv*y+by)*1024))+16,32);
+        sy[y]=floor_div(fixed,32);fy[y]=fixed-sy[y]*32;
+    }
+    for(int y=0;y<224;y++)for(int x=0;x<224;x++) {
+        int accum[3]={0,0,0};
+        for(int dy=0;dy<2;dy++)for(int dx=0;dx<2;dx++) {
+            const int xx=sx[x]+dx,yy=sy[y]+dy;
+            if(xx<0||xx>=width||yy<0||yy>=height)continue;
+            const uint32_t pixel=px[size_t(yy)*stride+xx];
+            const int w=(dx?fx[x]:32-fx[x])*(dy?fy[y]:32-fy[y]);
+            accum[0]+=int((pixel>>16)&255)*w;
+            accum[1]+=int((pixel>>8)&255)*w;
+            accum[2]+=int(pixel&255)*w;
+        }
+        const size_t at=(size_t(y)*224+x)*4;
+        for(int c=0;c<3;c++)dst[at+c]=uint8_t((accum[c]+512)/1024);
+        dst[at+3]=0;
+    }
+}
+

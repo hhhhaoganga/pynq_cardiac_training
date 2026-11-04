@@ -1,0 +1,24 @@
+{
+  "variant": "knot_dw3_e3_w4a8_v1",
+  "model": "knot",
+  "input_nchw": [
+    1,
+    3,
+    256,
+    320
+  ],
+  "classes": [
+    "single",
+    "square",
+    "triple"
+  ],
+  "max_dw_kernel": 3,
+  "max_expanded_channels": 336,
+  "software_format": "NNP1",
+  "hardware_profile": "knot_dw3",
+  "activation_bits": 8,
+  "internal_weight_bits": 4,
+  "edge_weight_bits": 8,
+  "hardware_status": "not_synthesized_not_deployed",
+  "integer_accuracy_gate": true
+}

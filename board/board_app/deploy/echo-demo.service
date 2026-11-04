@@ -1,0 +1,20 @@
+[Unit]
+Description=Echocardiography DFX demo (HDMI UI + TCP 5001)
+# bootpy.service runs /boot/boot.py, which loads the PYNQ base overlay; start
+# after it so our full bitstream is the one that stays in the PL.
+After=network.target bootpy.service
+Wants=network.target
+
+[Service]
+Type=simple
+# Host address expected by host/camus_stream_host.py, plus the address used for
+# ssh during development. Added next to DHCP/eth0:1, idempotent.
+ExecStartPre=-/sbin/ip addr add 169.254.1.150/16 dev eth0
+ExecStartPre=-/sbin/ip addr add 169.254.1.99/16 dev eth0
+ExecStart=/home/xilinx/board_app/echo_demo
+Restart=on-failure
+RestartSec=3
+Nice=-5
+
+[Install]
+WantedBy=multi-user.target

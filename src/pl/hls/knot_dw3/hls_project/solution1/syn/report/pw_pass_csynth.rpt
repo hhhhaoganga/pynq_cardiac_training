@@ -1,0 +1,224 @@
+
+
+================================================================
+== Vitis HLS Report for 'pw_pass'
+================================================================
+* Date:           Wed Oct  7 11:41:37 2026
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        hls_project
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.920 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-------+---------+
+    |  Latency (cycles) |  Latency (absolute) |   Interval  | Pipeline|
+    |   min   |   max   |    min   |    max   | min |  max  |   Type  |
+    +---------+---------+----------+----------+-----+-------+---------+
+    |       10|    13129|  0.100 us|  0.131 ms|   10|  13129|       no|
+    +---------+---------+----------+----------+-----+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        +----------------------------------------------+-----------------------------------+---------+---------+-----------+----------+-----+-------+------------------------------------------------+
+        |                                              |                                   |  Latency (cycles) |  Latency (absolute)  |   Interval  |                    Pipeline                    |
+        |                   Instance                   |               Module              |   min   |   max   |    min    |    max   | min |  max  |                      Type                      |
+        +----------------------------------------------+-----------------------------------+---------+---------+-----------+----------+-----+-------+------------------------------------------------+
+        |grp_pw_pass_Pipeline_VITIS_LOOP_195_1_fu_194  |pw_pass_Pipeline_VITIS_LOOP_195_1  |        5|    13124|  50.000 ns|  0.131 ms|    1|  13106|  loop auto-rewind stp (delay=0 clock cycles(s))|
+        +----------------------------------------------+-----------------------------------+---------+---------+-----------+----------+-----+-------+------------------------------------------------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|    211|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|   57|   14774|  21686|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       0|     37|    -|
+|Register         |        -|    -|     276|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|   57|   15050|  21934|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|   25|      14|     41|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +----------------------------------------------+-----------------------------------+---------+----+-------+-------+-----+
+    |                   Instance                   |               Module              | BRAM_18K| DSP|   FF  |  LUT  | URAM|
+    +----------------------------------------------+-----------------------------------+---------+----+-------+-------+-----+
+    |mul_32s_32s_32_2_1_U251                       |mul_32s_32s_32_2_1                 |        0|   3|    165|     50|    0|
+    |mul_32s_32s_32_2_1_U252                       |mul_32s_32s_32_2_1                 |        0|   3|    165|     50|    0|
+    |mul_32s_32s_32_2_1_U253                       |mul_32s_32s_32_2_1                 |        0|   3|    165|     50|    0|
+    |grp_pw_pass_Pipeline_VITIS_LOOP_195_1_fu_194  |pw_pass_Pipeline_VITIS_LOOP_195_1  |        0|  48|  14279|  21536|    0|
+    +----------------------------------------------+-----------------------------------+---------+----+-------+-------+-----+
+    |Total                                         |                                   |        0|  57|  14774|  21686|    0|
+    +----------------------------------------------+-----------------------------------+---------+----+-------+-------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------+----------+----+---+----+------------+------------+
+    |      Variable Name     | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------+----------+----+---+----+------------+------------+
+    |sub14_fu_316_p2         |         +|   0|  0|  39|          32|           2|
+    |sub231_fu_322_p2        |         +|   0|  0|  39|          32|           2|
+    |sub_fu_310_p2           |         +|   0|  0|  39|          32|           2|
+    |cmp133_fu_328_p2        |      icmp|   0|  0|  39|          32|           1|
+    |cmp135_fu_335_p2        |      icmp|   0|  0|  39|          32|           1|
+    |icmp_ln192_fu_289_p2    |      icmp|   0|  0|  11|           2|           3|
+    |select_ln192_fu_295_p3  |    select|   0|  0|   5|           1|           5|
+    +------------------------+----------+----+---+----+------------+------------+
+    |Total                   |          |   0|  0| 211|         163|          16|
+    +------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------+----+-----------+-----+-----------+
+    |    Name   | LUT| Input Size| Bits| Total Bits|
+    +-----------+----+-----------+-----+-----------+
+    |ap_NS_fsm  |  37|          7|    1|          7|
+    +-----------+----+-----------+-----+-----------+
+    |Total      |  37|          7|    1|          7|
+    +-----------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------------------------------------+----+----+-----+-----------+
+    |                            Name                           | FF | LUT| Bits| Const Bits|
+    +-----------------------------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                                  |   6|   0|    6|          0|
+    |cmp133_reg_492                                             |   1|   0|    1|          0|
+    |cmp135_reg_497                                             |   1|   0|    1|          0|
+    |empty_190_reg_462                                          |   2|   0|    2|          0|
+    |empty_191_reg_502                                          |  10|   0|   10|          0|
+    |empty_192_reg_507                                          |  10|   0|   10|          0|
+    |empty_193_reg_512                                          |   8|   0|    8|          0|
+    |empty_194_reg_517                                          |   8|   0|    8|          0|
+    |empty_reg_457                                              |   2|   0|    2|          0|
+    |grp_pw_pass_Pipeline_VITIS_LOOP_195_1_fu_194_ap_start_reg  |   1|   0|    1|          0|
+    |mul_ln193_1_reg_392                                        |  32|   0|   32|          0|
+    |mul_ln193_2_reg_397                                        |  32|   0|   32|          0|
+    |mul_ln193_reg_387                                          |  32|   0|   32|          0|
+    |n_reg_472                                                  |  32|   0|   32|          0|
+    |select_ln192_reg_467                                       |   3|   0|    5|          2|
+    |sub14_reg_482                                              |  32|   0|   32|          0|
+    |sub231_reg_487                                             |  32|   0|   32|          0|
+    |sub_reg_477                                                |  32|   0|   32|          0|
+    +-----------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                      | 276|   0|  278|          2|
+    +-----------------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------------------------------+-----+-----+------------+----------------------------------+--------------+
+|                 RTL Ports                 | Dir | Bits|  Protocol  |           Source Object          |    C Type    |
++-------------------------------------------+-----+-----+------------+----------------------------------+--------------+
+|ap_clk                                     |   in|    1|  ap_ctrl_hs|                           pw_pass|  return value|
+|ap_rst                                     |   in|    1|  ap_ctrl_hs|                           pw_pass|  return value|
+|ap_start                                   |   in|    1|  ap_ctrl_hs|                           pw_pass|  return value|
+|ap_done                                    |  out|    1|  ap_ctrl_hs|                           pw_pass|  return value|
+|ap_idle                                    |  out|    1|  ap_ctrl_hs|                           pw_pass|  return value|
+|ap_ready                                   |  out|    1|  ap_ctrl_hs|                           pw_pass|  return value|
+|mode                                       |   in|   32|     ap_none|                              mode|        scalar|
+|W                                          |   in|   32|     ap_none|                                 W|        scalar|
+|ocg                                        |   in|   32|     ap_none|                               ocg|        scalar|
+|icg                                        |   in|   32|     ap_none|                               icg|        scalar|
+|npass                                      |   in|   32|     ap_none|                             npass|        scalar|
+|tbase                                      |   in|   32|     ap_none|                             tbase|        scalar|
+|st                                         |   in|   32|     ap_none|                                st|        scalar|
+|in_sg                                      |   in|    1|     ap_none|                             in_sg|        scalar|
+|lo                                         |   in|   32|     ap_none|                                lo|        scalar|
+|hi                                         |   in|   32|     ap_none|                                hi|        scalar|
+|slot                                       |   in|   32|     ap_none|                              slot|        scalar|
+|r_mode                                     |   in|   32|     ap_none|                            r_mode|        scalar|
+|r_sg                                       |   in|    1|     ap_none|                              r_sg|        scalar|
+|ma                                         |   in|   32|     ap_none|                                ma|        scalar|
+|mb                                         |   in|   32|     ap_none|                                mb|        scalar|
+|a_lo                                       |   in|   32|     ap_none|                              a_lo|        scalar|
+|a_hi                                       |   in|   32|     ap_none|                              a_hi|        scalar|
+|cnn_top_ap_uint_64_int_int_pin_address0    |  out|    8|   ap_memory|    cnn_top_ap_uint_64_int_int_pin|         array|
+|cnn_top_ap_uint_64_int_int_pin_ce0         |  out|    1|   ap_memory|    cnn_top_ap_uint_64_int_int_pin|         array|
+|cnn_top_ap_uint_64_int_int_pin_q0          |   in|  128|   ap_memory|    cnn_top_ap_uint_64_int_int_pin|         array|
+|cnn_top_ap_uint_64_int_int_pin_5_address0  |  out|    8|   ap_memory|  cnn_top_ap_uint_64_int_int_pin_5|         array|
+|cnn_top_ap_uint_64_int_int_pin_5_ce0       |  out|    1|   ap_memory|  cnn_top_ap_uint_64_int_int_pin_5|         array|
+|cnn_top_ap_uint_64_int_int_pin_5_q0        |   in|  128|   ap_memory|  cnn_top_ap_uint_64_int_int_pin_5|         array|
+|dwb_address0                               |  out|    9|   ap_memory|                               dwb|         array|
+|dwb_ce0                                    |  out|    1|   ap_memory|                               dwb|         array|
+|dwb_q0                                     |   in|  128|   ap_memory|                               dwb|         array|
+|wt_address0                                |  out|   11|   ap_memory|                                wt|         array|
+|wt_ce0                                     |  out|    1|   ap_memory|                                wt|         array|
+|wt_q0                                      |   in|  320|   ap_memory|                                wt|         array|
+|bias_p_address0                            |  out|    7|   ap_memory|                            bias_p|         array|
+|bias_p_ce0                                 |  out|    1|   ap_memory|                            bias_p|         array|
+|bias_p_q0                                  |   in|  192|   ap_memory|                            bias_p|         array|
+|outh_address0                              |  out|    6|   ap_memory|                              outh|         array|
+|outh_ce0                                   |  out|    1|   ap_memory|                              outh|         array|
+|outh_we0                                   |  out|    1|   ap_memory|                              outh|         array|
+|outh_d0                                    |  out|  504|   ap_memory|                              outh|         array|
+|mult_p_address0                            |  out|    7|   ap_memory|                            mult_p|         array|
+|mult_p_ce0                                 |  out|    1|   ap_memory|                            mult_p|         array|
+|mult_p_q0                                  |   in|  256|   ap_memory|                            mult_p|         array|
+|shift_p_address0                           |  out|    7|   ap_memory|                           shift_p|         array|
+|shift_p_ce0                                |  out|    1|   ap_memory|                           shift_p|         array|
+|shift_p_q0                                 |   in|   48|   ap_memory|                           shift_p|         array|
+|resb0_address0                             |  out|    8|   ap_memory|                             resb0|         array|
+|resb0_ce0                                  |  out|    1|   ap_memory|                             resb0|         array|
+|resb0_q0                                   |   in|  128|   ap_memory|                             resb0|         array|
+|cnn_top_ap_uint_64_int_int_lb_address0     |  out|    9|   ap_memory|     cnn_top_ap_uint_64_int_int_lb|         array|
+|cnn_top_ap_uint_64_int_int_lb_ce0          |  out|    1|   ap_memory|     cnn_top_ap_uint_64_int_int_lb|         array|
+|cnn_top_ap_uint_64_int_int_lb_we0          |  out|    1|   ap_memory|     cnn_top_ap_uint_64_int_int_lb|         array|
+|cnn_top_ap_uint_64_int_int_lb_d0           |  out|  128|   ap_memory|     cnn_top_ap_uint_64_int_int_lb|         array|
+|cnn_top_ap_uint_64_int_int_lb_2_address0   |  out|    9|   ap_memory|   cnn_top_ap_uint_64_int_int_lb_2|         array|
+|cnn_top_ap_uint_64_int_int_lb_2_ce0        |  out|    1|   ap_memory|   cnn_top_ap_uint_64_int_int_lb_2|         array|
+|cnn_top_ap_uint_64_int_int_lb_2_we0        |  out|    1|   ap_memory|   cnn_top_ap_uint_64_int_int_lb_2|         array|
+|cnn_top_ap_uint_64_int_int_lb_2_d0         |  out|  128|   ap_memory|   cnn_top_ap_uint_64_int_int_lb_2|         array|
+|cnn_top_ap_uint_64_int_int_lb_3_address0   |  out|    9|   ap_memory|   cnn_top_ap_uint_64_int_int_lb_3|         array|
+|cnn_top_ap_uint_64_int_int_lb_3_ce0        |  out|    1|   ap_memory|   cnn_top_ap_uint_64_int_int_lb_3|         array|
+|cnn_top_ap_uint_64_int_int_lb_3_we0        |  out|    1|   ap_memory|   cnn_top_ap_uint_64_int_int_lb_3|         array|
+|cnn_top_ap_uint_64_int_int_lb_3_d0         |  out|  128|   ap_memory|   cnn_top_ap_uint_64_int_int_lb_3|         array|
+|cnn_top_ap_uint_64_int_int_lb_4_address0   |  out|    9|   ap_memory|   cnn_top_ap_uint_64_int_int_lb_4|         array|
+|cnn_top_ap_uint_64_int_int_lb_4_ce0        |  out|    1|   ap_memory|   cnn_top_ap_uint_64_int_int_lb_4|         array|
+|cnn_top_ap_uint_64_int_int_lb_4_we0        |  out|    1|   ap_memory|   cnn_top_ap_uint_64_int_int_lb_4|         array|
+|cnn_top_ap_uint_64_int_int_lb_4_d0         |  out|  128|   ap_memory|   cnn_top_ap_uint_64_int_int_lb_4|         array|
+|outb_address0                              |  out|    8|   ap_memory|                              outb|         array|
+|outb_ce0                                   |  out|    1|   ap_memory|                              outb|         array|
+|outb_we0                                   |  out|    1|   ap_memory|                              outb|         array|
+|outb_d0                                    |  out|  128|   ap_memory|                              outb|         array|
++-------------------------------------------+-----+-----+------------+----------------------------------+--------------+
+
